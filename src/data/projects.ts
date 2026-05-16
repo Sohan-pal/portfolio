@@ -18,7 +18,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "lumen-banking",
-    title: "Lumen — Calm Banking",
+    title: "Sohan pal portofolio",
     category: "Mobile · UI/UX",
     year: "2025",
     summary: "Rethinking neobank flows with a calmer, expense-first interface.",
