@@ -51,19 +51,25 @@ function Hero() {
         </motion.div>
 
         <h1 className="mt-6 font-display text-[clamp(2.6rem,9vw,7.5rem)] leading-[0.95] tracking-tight">
-          {["Designing", "playful", "digital", "experiences."].map((w, i) => (
-            <motion.span
-              key={w}
-              initial={{ y: "110%" }}
-              animate={{ y: "0%" }}
-              transition={{ duration: 0.9, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="mr-3 inline-block overflow-hidden align-bottom pb-4 -mb-4"
-            >
-              <span className="inline-block">
-                {i === 1 ? <span className="text-gradient italic">{w}</span> : w}
-              </span>
-            </motion.span>
-          ))}
+          {profile.tagline.split(" ").map((w, i) => {
+            const isGradient =
+              w.includes("playful") ||
+              w.includes("interactive") ||
+              (!profile.tagline.includes("playful") && i === 1);
+            return (
+              <motion.span
+                key={w + i}
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 0.9, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="mr-3 inline-block overflow-hidden align-bottom pb-4 -mb-4"
+              >
+                <span className="inline-block">
+                  {isGradient ? <span className="text-gradient italic">{w}</span> : w}
+                </span>
+              </motion.span>
+            );
+          })}
         </h1>
 
         <motion.div

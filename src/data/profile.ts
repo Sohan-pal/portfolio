@@ -3,7 +3,7 @@ export const profile = {
   name: "Sohan Pal",
   shortName: "Sohan",
   role: "UX Designer",
-  tagline: "Designing playful digital experiences with intention.",
+  tagline: "Designing playful and interactive digital experiences with intention.",
   location: "Kolkata",
   email: "sohanxpal18@gmail.com",
   resumeUrl: "/resume.pdf",

@@ -5,11 +5,11 @@ export const skillGroups = [
   },
   {
     label: "Visual",
-    items: ["Branding", "Typography", "Editorial", "Illustration", "Motion Design"],
+    items: ["Branding", "Typography", "Editorial", "Illustration"],
   },
   {
     label: "Tools",
-    items: ["Figma", "Illustrator", "Photoshop", "After Effects", "Framer", "Rive"],
+    items: ["Figma", "Illustrator", "Photoshop", "Framer"],
   },
   {
     label: "Code",
