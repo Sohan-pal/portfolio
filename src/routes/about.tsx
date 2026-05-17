@@ -34,7 +34,7 @@ function About() {
             <Row label="Based in" value={profile.location} />
             <Row label="Email" value={profile.email} />
             <Row label="Status" value={profile.available ? "Open to work" : "Currently booked"} />
-            <Row label="Focus" value="Product · Brand · Motion" />
+            <Row label="Focus" value="UI/UX · Visual Design · Branding" />
           </aside>
         </div>
 

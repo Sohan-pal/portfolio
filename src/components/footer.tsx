@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
           <div>
             <p className="font-display text-3xl tracking-tight md:text-5xl">
-              Let's make <span className="text-gradient">something</span>.
+              Let's build something  <span className="text-gradient">remarkable</span>
             </p>
             <a
               href={`mailto:${profile.email}`}
