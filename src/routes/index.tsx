@@ -165,7 +165,7 @@ function SkillsSection() {
     <section className="relative py-32">
       <div className="mx-auto max-w-6xl px-5">
         <h2 className="mb-12 font-display text-4xl md:text-6xl">
-          Things I <span className="text-gradient">make</span>.
+          Creative <span className="text-gradient">stack</span>.
         </h2>
         <div className="grid gap-3 md:grid-cols-2">
           {skillGroups.map((g, idx) => (
@@ -200,7 +200,7 @@ function Testimonials() {
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-6xl px-5">
-        <h2 className="mb-12 font-display text-4xl md:text-6xl">Kind words.</h2>
+        <h2 className="mb-12 font-display text-4xl md:text-6xl">Testimonials.</h2>
         <div className="grid gap-5 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.figure

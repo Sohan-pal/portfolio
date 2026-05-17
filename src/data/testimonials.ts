@@ -13,8 +13,8 @@ export const testimonials = [
   },
   {
     quote:
-      "Calm, considered, opinionated when it matters. Easily the strongest design student I've mentored this year.",
-    name: "Prof. L. Bhattacharya",
-    role: "Faculty, Srishti",
+      "Calm, considerate and opinionated when it matters.Easily one of the most delightful people I've worked with in the past two years.",
+    name: "Shramana Bandyopadhyay",
+    role: "Core member, SCCSE",
   },
 ];
