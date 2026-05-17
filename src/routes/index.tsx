@@ -57,7 +57,7 @@ function Hero() {
               initial={{ y: "110%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 0.9, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="mr-3 inline-block overflow-hidden align-bottom"
+              className="mr-3 inline-block overflow-hidden align-bottom pb-4 -mb-4"
             >
               <span className="inline-block">
                 {i === 1 ? <span className="text-gradient italic">{w}</span> : w}
