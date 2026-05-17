@@ -9,7 +9,7 @@ export const skillGroups = [
   },
   {
     label: "Tools",
-    items: ["Figma", "Illustrator", "Photoshop", "Framer"],
+    items: ["Figma", "Illustrator", "Photoshop", "Framer", "Premiere Pro"],
   },
   {
     label: "Code",

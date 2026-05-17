@@ -17,17 +17,17 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           className="mt-3 font-display text-5xl leading-tight md:text-7xl"
         >
-          A student designer who treats <span className="text-gradient italic">small details</span> like they matter.
+          A designer who treats <span className="text-gradient italic">small details</span> like they matter.
         </motion.h1>
 
         <div className="mt-16 grid gap-12 md:grid-cols-3">
           <div className="md:col-span-2 space-y-5 text-lg leading-relaxed text-foreground/90">
             <p>{profile.bio}</p>
             <p className="text-muted-foreground">
-              Outside of school I run critique nights for the campus design club, draw daily UI exercises, and read more about typography than is probably reasonable.
+              From typography to bold visual graphics, I enjoy designing experiences that feel polished, expressive, and human.
             </p>
             <p className="text-muted-foreground">
-              Currently exploring how interface motion can communicate state without explanation, and how brand systems hold up at very small sizes.
+              Currently I am exploring UI/UX design systems, branding, and visual design through personal projects, collaborating with other designers and constant experimentation.
             </p>
           </div>
           <aside className="space-y-6 rounded-3xl border border-border p-6">

@@ -7,6 +7,6 @@ export const profile = {
   location: "Kolkata",
   email: "sohanxpal18@gmail.com",
   resumeUrl: "/resume.pdf",
-  bio: "I am a passionate UX Designer focused on creating intuitive, user-centered digital experiences. I specialize in bridging the gap between user needs and business goals through thoughtful research, wireframing, and prototyping.",
+  bio: "I am a designer focused on creating intuitive, user-centered digital experiences. I specialize in bridging the gap between user needs and business goals through thoughtful research, wireframing, and prototyping.",
   available: true,
 };
