@@ -13,9 +13,37 @@ export type Project = {
   process: string[];
   outcome: string;
   gallery: string[];
+  externalUrl?: string;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "design-poster",
+    title: "Graphics design posters",
+    category: "Print · Type",
+    year: "2025-26",
+    summary: "Typographic posters for a various clients.",
+    description:
+      "A six-poster series mixing photography, modular type and risograph textures.",
+    cover: "from-lime-300 via-emerald-300 to-teal-400",
+    accent: "from-lime-300 to-teal-400",
+    tools: ["Illustrator", "Figma"],
+    externalUrl: "https://www.behance.net/gallery/249517067/Graphic-design-posters-showcase",
+    problem:
+      "The festival wanted print that felt local and unfussy, with strong wayfinding for a small budget.",
+    process: [
+      "Modular type system in two weights",
+      "Photography sourced from community gardens",
+      "Two-color riso prints for posters and zines",
+    ],
+    outcome:
+      "200 posters distributed across the city; the festival reported 30% higher walk-in attendance.",
+    gallery: [
+      "from-lime-300 to-teal-400",
+      "from-emerald-300 to-lime-200",
+      "from-teal-400 to-emerald-300",
+    ],
+  },
   {
     slug: "lumen-banking",
     title: "Sohan pal portofolio",
@@ -44,33 +72,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "kintsugi-identity",
-    title: "Kintsugi — Studio Identity",
-    category: "Branding · Print",
-    year: "2025",
-    summary: "A visual identity for a ceramics studio rooted in repair and care.",
-    description:
-      "Identity system, packaging and a small editorial book exploring the philosophy of imperfect beauty.",
-    cover: "from-stone-300 via-amber-200 to-emerald-300",
-    accent: "from-emerald-300 to-amber-200",
-    tools: ["Illustrator", "InDesign", "Photoshop"],
-    problem:
-      "The studio needed an identity that felt handmade without looking dated, and that translated to both packaging and digital.",
-    process: [
-      "Mood research across Japanese craft and modern editorial",
-      "Custom wordmark with a broken-and-rejoined motif",
-      "Packaging system with riso-printed stickers",
-      "Editorial layout for the studio book",
-    ],
-    outcome:
-      "Adopted as the full brand system; the studio book was shortlisted at a regional student design award.",
-    gallery: [
-      "from-emerald-300 to-stone-300",
-      "from-amber-200 to-emerald-200",
-      "from-stone-200 to-amber-300",
-    ],
-  },
-  {
     slug: "drift-music",
     title: "Drift — Spatial Music Player",
     category: "Web · Concept",
@@ -95,32 +96,6 @@ export const projects: Project[] = [
       "from-sky-300 to-fuchsia-400",
       "from-violet-300 to-sky-300",
       "from-fuchsia-400 to-rose-300",
-    ],
-  },
-  {
-    slug: "harvest-poster",
-    title: "Harvest — Poster Series",
-    category: "Print · Type",
-    year: "2024",
-    summary: "Typographic posters for a community urban-farming festival.",
-    description:
-      "A six-poster series mixing photography, modular type and risograph textures.",
-    cover: "from-lime-300 via-emerald-300 to-teal-400",
-    accent: "from-lime-300 to-teal-400",
-    tools: ["Illustrator", "Photoshop", "Risograph"],
-    problem:
-      "The festival wanted print that felt local and unfussy, with strong wayfinding for a small budget.",
-    process: [
-      "Modular type system in two weights",
-      "Photography sourced from community gardens",
-      "Two-color riso prints for posters and zines",
-    ],
-    outcome:
-      "200 posters distributed across the city; the festival reported 30% higher walk-in attendance.",
-    gallery: [
-      "from-lime-300 to-teal-400",
-      "from-emerald-300 to-lime-200",
-      "from-teal-400 to-emerald-300",
     ],
   },
 ];
