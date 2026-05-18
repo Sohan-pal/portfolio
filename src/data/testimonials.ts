@@ -7,9 +7,9 @@ export const testimonials = [
   },
   {
     quote:
-      "His motion work made our concept feel ten times more polished. He thinks in details most designers skip.",
-    name: "Devan Rao",
-    role: "Founder, Drift",
+      "As the Convenor of the IEI Students' Chapter (CSE) at AOT, I highly recommend Sohan. He is an exceptionally hardworking and creative designer who consistently elevated our chapter's visual presence. Sohan brings fresh ideas to every project and delivers outstanding results with strong dedication. He is a valuable asset to any team.",
+    name: "Sukrit Debnath",
+    role: "Convenor, SCCSE",
   },
   {
     quote:
