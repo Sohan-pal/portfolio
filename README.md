@@ -2,7 +2,7 @@
 
 A premium, highly polished, and interactive portfolio built for showcasing UI/UX case studies, visual design, branding, and motion graphics. Designed with a focus on rich aesthetics, smooth micro-interactions, and flawless typography.
 
-![Portfolio Preview](public/spotifyfit-thumbnail.png)
+![Portfolio Preview](public/portfolio.png)
 
 ---
 
