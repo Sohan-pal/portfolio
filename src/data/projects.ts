@@ -46,13 +46,13 @@ export const projects: Project[] = [
   },
   {
     slug: "spotify-fitness_app",
-    title: "Spotify fitness app",
+    title: "Spotify-fit app",
     category: "Mobile · UI/UX",
     year: "2025",
     summary: "Concept and prototype for a spotify based fitness app.",
     description:
       "A concept neobank app that reframes balances around what you can actually spend, with soft micro-interactions and a focus on financial calm.",
-    cover: "from-amber-200 via-orange-300 to-rose-400",
+    cover: "/spotifyfit-thumbnail.png",
     accent: "from-amber-300 to-rose-400",
     tools: ["Figma", "Notion"],
     externalUrl: "https://www.notion.so/Spotify-x-Fitness-UX-Design-Sprint-Case-study-364c14536d3a801589ebcffe1b95fed0?source=copy_link",
@@ -73,16 +73,17 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "drift-music",
-    title: "Drift — Spatial Music Player",
-    category: "Web · Concept",
-    year: "2024",
-    summary: "A music player where tracks live as objects in a soft 2D space.",
+    slug: "xp-bar",
+    title: "XP bar logo",
+    category: "Branding · Social media",
+    year: "2025",
+    summary: "Designed logo and social media content for a game dev page.",
     description:
       "An experimental music UI exploring non-linear playlists, where songs are arranged spatially and connected by mood.",
-    cover: "from-sky-300 via-violet-300 to-fuchsia-400",
+    cover: "/xpbar.png",
     accent: "from-sky-300 to-fuchsia-400",
-    tools: ["Figma", "Framer", "Rive"],
+    tools: ["Figma", "Premiere Pro"],
+    externalUrl: "https://www.behance.net/gallery/249570551/Xp-bar",
     problem:
       "Linear playlists collapse the texture of how we actually listen. Could a spatial canvas feel more like a real listening session?",
     process: [
