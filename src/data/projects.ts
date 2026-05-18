@@ -19,10 +19,10 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "design-poster",
-    title: "Graphics design posters",
+    title: "Graphic design posters",
     category: "Print · Type",
     year: "2025-26",
-    summary: "Typographic posters for a various clients.",
+    summary: "Typographic posters for various clients.",
     description:
       "A six-poster series mixing photography, modular type and risograph textures.",
     cover: "from-lime-300 via-emerald-300 to-teal-400",
@@ -45,16 +45,17 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "lumen-banking",
-    title: "Sohan pal portofolio",
+    slug: "spotify-fitness_app",
+    title: "Spotify fitness app",
     category: "Mobile · UI/UX",
     year: "2025",
-    summary: "Rethinking neobank flows with a calmer, expense-first interface.",
+    summary: "Concept and prototype for a spotify based fitness app.",
     description:
       "A concept neobank app that reframes balances around what you can actually spend, with soft micro-interactions and a focus on financial calm.",
     cover: "from-amber-200 via-orange-300 to-rose-400",
     accent: "from-amber-300 to-rose-400",
-    tools: ["Figma", "Principle", "After Effects"],
+    tools: ["Figma", "Notion"],
+    externalUrl: "https://www.notion.so/Spotify-x-Fitness-UX-Design-Sprint-Case-study-364c14536d3a801589ebcffe1b95fed0?source=copy_link",
     problem:
       "Most banking apps lead with anxiety-inducing balances. We wanted an interface that helps students plan, not panic.",
     process: [
