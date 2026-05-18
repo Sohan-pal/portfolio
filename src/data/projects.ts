@@ -74,7 +74,7 @@ export const projects: Project[] = [
   },
   {
     slug: "xp-bar",
-    title: "XP bar logo",
+    title: "XP bar",
     category: "Branding · Social media",
     year: "2025",
     summary: "Designed logo and social media content for a game dev page.",

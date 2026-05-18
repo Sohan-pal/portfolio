@@ -21,7 +21,7 @@ function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pending, setPending] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget).entries());
     const parsed = schema.safeParse(data);
@@ -33,11 +33,27 @@ function Contact() {
     }
     setErrors({});
     setPending(true);
-    // TODO: connect to Formspree / EmailJS — POST parsed.data to your endpoint here.
-    setTimeout(() => {
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "981f622c-1b81-45be-a921-8521b54580f7",
+          subject: `New message from ${parsed.data.name} via portfolio`,
+          from_name: parsed.data.name,
+          ...parsed.data,
+        }),
+      });
+      if (res.ok) {
+        setSent(true);
+      } else {
+        setErrors({ message: "Something went wrong. Please try again or email me directly." });
+      }
+    } catch {
+      setErrors({ message: "Network error. Please try again or email me directly." });
+    } finally {
       setPending(false);
-      setSent(true);
-    }, 800);
+    }
   }
 
   return (

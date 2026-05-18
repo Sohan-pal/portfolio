@@ -79,7 +79,7 @@ function Hero() {
           className="mt-10 flex max-w-3xl flex-col items-start justify-between gap-6 md:flex-row md:items-end"
         >
           <p className="max-w-md text-base text-muted-foreground md:text-lg">
-            I'm <span className="text-foreground">{profile.name}</span> — a {profile.role.toLowerCase()} based in {profile.location}. I make interfaces, identities and the small motion in between.
+            I'm <span className="text-foreground">{profile.name}</span> — a {profile.role.toLowerCase()} based in {profile.location}. {profile.shortBio}
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Magnetic>
