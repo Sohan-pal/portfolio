@@ -122,7 +122,7 @@ function Contact() {
                     <Check size={28} />
                   </div>
                   <p className="mt-5 font-display text-2xl">Message sent.</p>
-                  <p className="mt-2 text-sm text-muted-foreground">I'll reply within a couple of days.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Thanks for reaching out! I'll get back to you shortly.</p>
                 </motion.div>
               ) : (
                 <motion.form
