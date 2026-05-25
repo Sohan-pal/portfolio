@@ -3,7 +3,7 @@ export const testimonials = [
     quote:
       "Sohan has the rare ability to turn fuzzy product ideas into interfaces that immediately feel obvious. A joy to collaborate with.",
     name: "Maya Iyer",
-    role: "PM, Foglamp Studio",
+    role: "Foglamp Studio",
   },
   {
     quote:
