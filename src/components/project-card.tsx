@@ -31,8 +31,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       </motion.div>
       {!isImage && (
         <div className="absolute inset-0 grid place-items-center">
-          <span className="font-display text-4xl text-white/90 mix-blend-overlay md:text-6xl">
-            {project.title.split(" ")[0]}
+          <span className="font-display text-4xl text-white/90 mix-blend-overlay md:text-6xl text-center px-4">
+            {project.shortTitle || project.title.split(" ")[0]}
           </span>
         </div>
       )}

@@ -14,12 +14,14 @@ export type Project = {
   outcome: string;
   gallery: string[];
   externalUrl?: string;
+  shortTitle?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "design-poster",
     title: "Graphic design posters",
+    shortTitle: "Graphic design",
     category: "Print · Type",
     year: "2025-26",
     summary: "Typographic posters for various clients.",
