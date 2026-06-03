@@ -25,8 +25,8 @@ export const projects: Project[] = [
     summary: "Typographic posters for various clients.",
     description:
       "A six-poster series mixing photography, modular type and risograph textures.",
-    cover: "from-lime-300 via-emerald-300 to-teal-400",
-    accent: "from-lime-300 to-teal-400",
+    cover: "from-amber-200 via-rose-300 to-cyan-300",
+    accent: "from-amber-200 to-cyan-300",
     tools: ["Illustrator", "Figma"],
     externalUrl: "https://www.behance.net/gallery/249517067/Graphic-design-posters-showcase",
     problem:
@@ -39,9 +39,9 @@ export const projects: Project[] = [
     outcome:
       "200 posters distributed across the city; the festival reported 30% higher walk-in attendance.",
     gallery: [
-      "from-lime-300 to-teal-400",
-      "from-emerald-300 to-lime-200",
-      "from-teal-400 to-emerald-300",
+      "from-amber-200 to-rose-300",
+      "from-rose-300 to-cyan-300",
+      "from-cyan-300 to-amber-200",
     ],
   },
   {
