@@ -45,17 +45,17 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "spotify-fitness_app",
-    title: "Spotify-fit app",
-    category: "Mobile · UI/UX",
-    year: "2025",
-    summary: "Concept and prototype for a spotify based fitness app.",
+    slug: "aot-community-app",
+    title: "AOThub web app prototype",
+    category: "Web app · UI/UX",
+    year: "2026",
+    summary: "Concept and prototype for a web app for AOT community.",
     description:
       "A concept neobank app that reframes balances around what you can actually spend, with soft micro-interactions and a focus on financial calm.",
-    cover: "/spotifyfit-thumbnail.png",
+    cover: "/aothub.png",
     accent: "from-amber-300 to-rose-400",
     tools: ["Figma", "Notion"],
-    externalUrl: "https://www.notion.so/Spotify-x-Fitness-UX-Design-Sprint-Case-study-364c14536d3a801589ebcffe1b95fed0?source=copy_link",
+    externalUrl: "https://app.notion.com/p/AOTHUB-UX-DESIGN-CASE-STUDY-372c14536d3a8070a9d4d1e153e2d027?source=copy_link",
     problem:
       "Most banking apps lead with anxiety-inducing balances. We wanted an interface that helps students plan, not panic.",
     process: [
@@ -98,6 +98,34 @@ export const projects: Project[] = [
       "from-sky-300 to-fuchsia-400",
       "from-violet-300 to-sky-300",
       "from-fuchsia-400 to-rose-300",
+    ],
+  },
+  {
+    slug: "spotify-fitness_app",
+    title: "Spotify-fit app",
+    category: "Mobile · UI/UX",
+    year: "2025",
+    summary: "Concept and prototype for a spotify based fitness app.",
+    description:
+      "A concept neobank app that reframes balances around what you can actually spend, with soft micro-interactions and a focus on financial calm.",
+    cover: "/spotifyfit-thumbnail.png",
+    accent: "from-amber-300 to-rose-400",
+    tools: ["Figma", "Notion"],
+    externalUrl: "https://www.notion.so/Spotify-x-Fitness-UX-Design-Sprint-Case-study-364c14536d3a801589ebcffe1b95fed0?source=copy_link",
+    problem:
+      "Most banking apps lead with anxiety-inducing balances. We wanted an interface that helps students plan, not panic.",
+    process: [
+      "User interviews with 12 students about money stress",
+      "Information architecture exploring \"safe-to-spend\" first",
+      "Lo-fi wireframes, then a high-fidelity Figma prototype",
+      "Motion studies for transitions and micro-feedback",
+    ],
+    outcome:
+      "A 24-screen prototype with a calmer visual system and a 38% faster perceived load in user testing.",
+    gallery: [
+      "from-amber-200 to-rose-400",
+      "from-orange-300 to-pink-400",
+      "from-yellow-200 to-orange-400",
     ],
   },
 ];
