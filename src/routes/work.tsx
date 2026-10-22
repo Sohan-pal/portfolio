@@ -29,7 +29,7 @@ function Work() {
         <p className="mt-4 max-w-xl text-muted-foreground">
           A small archive of things I've made — student briefs, concept work and the occasional client project.
         </p>
-        <div className="mt-24 space-y-32">
+        <div className="mt-16 md:mt-20 space-y-20 md:space-y-24">
           {projects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}

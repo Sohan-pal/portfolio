@@ -37,20 +37,7 @@ function Hero() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1 text-xs text-muted-foreground backdrop-blur"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/70" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-          </span>
-          {profile.available ? "Available for select projects · 2026" : "Currently booked"}
-        </motion.div>
-
-        <h1 className="mt-6 font-display text-[clamp(2.6rem,9vw,7.5rem)] leading-[0.95] tracking-tight">
+        <h1 className="font-display text-[clamp(2.6rem,9vw,7.5rem)] leading-[0.95] tracking-tight">
           {profile.tagline.split(" ").map((w, i) => {
             const isGradient =
               w.includes("playful") ||
@@ -117,7 +104,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const words = ["UI/UX", "Branding", "Motion", "Editorial", "Prototyping", "Type", "Systems"];
+  const words = ["UI/UX", "Branding", "Motion", "Prototyping", "Design systems"];
   return (
     <div className="relative overflow-hidden border-y border-border/60 bg-surface/50 py-8">
       <div className="flex animate-marquee whitespace-nowrap">
@@ -150,7 +137,7 @@ function SelectedWork() {
             All work →
           </Link>
         </div>
-        <div className="space-y-32">
+        <div className="space-y-20 md:space-y-24">
           {projects.slice(0, 3).map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}

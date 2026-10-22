@@ -36,8 +36,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           </span>
         </div>
       )}
-      <div className="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full bg-background/60 text-foreground opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45 backdrop-blur">
-        <ArrowUpRight size={18} />
+      <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-background/60 text-foreground opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:rotate-45 backdrop-blur">
+        <ArrowUpRight size={16} />
       </div>
     </div>
   );
@@ -48,7 +48,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`group grid items-center gap-8 md:grid-cols-12 ${
+      className={`group mx-auto grid w-full max-w-[800px] items-center gap-6 md:grid-cols-12 ${
         reverse ? "md:[&>div:first-child]:order-2" : ""
       }`}
     >
@@ -57,7 +57,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           href={project.externalUrl}
           target="_blank"
           rel="noreferrer"
-          className="relative col-span-7 block overflow-hidden rounded-3xl"
+          className="relative col-span-7 block overflow-hidden rounded-2xl"
         >
           {cardImage}
         </a>
@@ -65,23 +65,23 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <Link
           to="/work/$slug"
           params={{ slug: project.slug }}
-          className="relative col-span-7 block overflow-hidden rounded-3xl"
+          className="relative col-span-7 block overflow-hidden rounded-2xl"
         >
           {cardImage}
         </Link>
       )}
 
-      <div className="col-span-5 space-y-4">
+      <div className="col-span-5 space-y-3">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           {project.category} · {project.year}
         </p>
-        <h3 className="font-display text-3xl md:text-4xl">{project.title}</h3>
-        <p className="text-muted-foreground">{project.summary}</p>
-        <div className="flex flex-wrap gap-2 pt-2">
+        <h3 className="font-display text-2xl md:text-3xl">{project.title}</h3>
+        <p className="text-sm text-muted-foreground">{project.summary}</p>
+        <div className="flex flex-wrap gap-2 pt-1">
           {project.tools.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
+              className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground"
             >
               {t}
             </span>
@@ -92,7 +92,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             href={project.externalUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 pt-3 text-sm font-medium text-primary"
+            className="inline-flex items-center gap-2 pt-2 text-sm font-medium text-primary"
           >
             Open project
             <ArrowUpRight size={16} />
@@ -101,7 +101,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <Link
             to="/work/$slug"
             params={{ slug: project.slug }}
-            className="inline-flex items-center gap-2 pt-3 text-sm font-medium text-primary"
+            className="inline-flex items-center gap-2 pt-2 text-sm font-medium text-primary"
           >
             Read case study
             <ArrowUpRight size={16} />

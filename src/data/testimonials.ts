@@ -15,6 +15,6 @@ export const testimonials = [
     quote:
       "Calm, considerate and opinionated when it matters.Easily one of the most delightful people I've worked with in the past two years.",
     name: "Shramana Bandyopadhyay",
-    role: "Core member, SCCSE",
+    role: "PR lead, SCCSE",
   },
 ];
