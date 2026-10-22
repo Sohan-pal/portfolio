@@ -37,7 +37,9 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl px-5">
         <div
           className={`flex items-center justify-between rounded-full px-5 py-3 transition-all ${
-            scrolled ? "glass shadow-soft" : ""
+            scrolled || open
+              ? "glass shadow-soft max-md:glass-frosty"
+              : ""
           }`}
         >
           <Link to="/" className="group flex items-center gap-2">
@@ -90,13 +92,13 @@ export function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="glass mt-2 rounded-2xl p-3 md:hidden"
+              className="glass-frosty mt-2 rounded-2xl p-3 md:hidden"
             >
               {links.map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}
-                  className="block rounded-xl px-4 py-3 text-sm hover:bg-secondary"
+                  className="block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary/60 active:bg-secondary"
                 >
                   {l.label}
                 </Link>
