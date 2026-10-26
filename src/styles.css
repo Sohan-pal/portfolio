@@ -2,8 +2,6 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
@@ -16,6 +14,27 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
 
+  /* Sketchbook design tokens */
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-blue: var(--blue);
+  --color-blue-deep: var(--blue-deep);
+  --color-sky: var(--sky);
+  --color-sky-light: var(--sky-light);
+  --color-cloud: var(--cloud);
+  --color-sun: var(--sun);
+  --color-line: var(--line);
+
+  /* Hard offset paper shadows */
+  --shadow-paper: 4px 4px 0px var(--ink);
+  --shadow-paper-sm: 2px 2px 0px var(--ink);
+  --shadow-paper-lg: 6px 6px 0px var(--ink);
+  --shadow-paper-sky: 4px 4px 0px var(--sky);
+  --shadow-paper-blue: 4px 4px 0px var(--blue-deep);
+
+  /* Semantic UI mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -39,8 +58,8 @@
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
 
-  --shadow-glow: 0 0 60px -10px var(--glow);
-  --shadow-soft: 0 10px 40px -10px oklch(0 0 0 / 0.5);
+  --shadow-glow: 0 0 40px -10px var(--sky);
+  --shadow-soft: 4px 4px 0px var(--ink);
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-grain: grain 8s steps(10) infinite;
@@ -48,56 +67,44 @@
   --animate-shimmer: shimmer 3s ease-in-out infinite;
 
   @keyframes float {
-
     0%,
     100% {
       transform: translateY(0);
     }
-
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-10px);
     }
   }
 
   @keyframes grain {
-
     0%,
     100% {
       transform: translate(0, 0);
     }
-
     10% {
       transform: translate(-5%, -10%);
     }
-
     20% {
       transform: translate(-15%, 5%);
     }
-
     30% {
       transform: translate(7%, -25%);
     }
-
     40% {
       transform: translate(-5%, 25%);
     }
-
     50% {
       transform: translate(-15%, 10%);
     }
-
     60% {
       transform: translate(15%, 0%);
     }
-
     70% {
       transform: translate(0%, 15%);
     }
-
     80% {
       transform: translate(3%, 35%);
     }
-
     90% {
       transform: translate(-10%, 10%);
     }
@@ -107,19 +114,16 @@
     from {
       transform: translateX(0);
     }
-
     to {
       transform: translateX(-50%);
     }
   }
 
   @keyframes shimmer {
-
     0%,
     100% {
       opacity: 0.5;
     }
-
     50% {
       opacity: 1;
     }
@@ -127,37 +131,49 @@
 }
 
 /* ------------------------------------------------------------------
-   DESIGN TOKENS — easy to customize the whole portfolio palette here
+   DESIGN TOKENS — Sketchbook Sky-and-Cloud Palette (Light Mode Only)
    ------------------------------------------------------------------ */
 :root {
-  --radius: 1rem;
+  --radius: 14px;
 
-  /* Dark by default — premium creative portfolio */
-  --background: oklch(0.14 0.02 270);
-  --foreground: oklch(0.97 0.005 270);
-  --surface: oklch(0.18 0.025 270);
-  --surface-elevated: oklch(0.22 0.03 270);
-  --card: oklch(0.18 0.025 270);
-  --card-foreground: oklch(0.97 0.005 270);
-  --popover: oklch(0.18 0.025 270);
-  --popover-foreground: oklch(0.97 0.005 270);
+  /* Reference-sampled sketchbook tokens */
+  --paper: #FBF8F0;
+  --paper-deep: #F3EEDF;
+  --ink: #0E1A3A;
+  --ink-soft: #4A5578;
+  --blue: #1677FF;
+  --blue-deep: #0B4FC4;
+  --sky: #A9D6FA;
+  --sky-light: #D6ECFF;
+  --cloud: #FFF6DC;
+  --sun: #FFC83D;
+  --line: rgba(14, 26, 58, 0.15);
 
-  /* Soft accent: warm peach/coral — distinctive, not the typical purple */
-  --primary: oklch(0.82 0.14 55);
-  --primary-foreground: oklch(0.15 0.02 270);
-  --glow: oklch(0.82 0.14 55 / 0.45);
+  /* Semantic mappings locked to light sketchbook theme */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --surface: var(--paper-deep);
+  --surface-elevated: var(--paper);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
 
-  --secondary: oklch(0.25 0.03 270);
-  --secondary-foreground: oklch(0.97 0.005 270);
-  --muted: oklch(0.22 0.025 270);
-  --muted-foreground: oklch(0.68 0.02 270);
-  --accent: oklch(0.78 0.13 200);
-  --accent-foreground: oklch(0.15 0.02 270);
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.97 0.005 270);
-  --border: oklch(1 0 0 / 0.08);
-  --input: oklch(1 0 0 / 0.1);
-  --ring: oklch(0.82 0.14 55 / 0.6);
+  --primary: var(--blue);
+  --primary-foreground: #FFFFFF;
+  --glow: var(--sky);
+
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--sky);
+  --accent-foreground: var(--ink);
+  --destructive: #E53E3E;
+  --destructive-foreground: #FFFFFF;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--blue);
 }
 
 @layer base {
@@ -167,11 +183,12 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: var(--paper);
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
@@ -179,8 +196,8 @@
   }
 
   ::selection {
-    background: var(--primary);
-    color: var(--primary-foreground);
+    background: var(--sky);
+    color: var(--ink);
   }
 
   h1,
@@ -193,54 +210,130 @@
 }
 
 @layer utilities {
+  /* Hand-drawn sketchbook panels replacing dark glassmorphism */
   .glass {
-    background: color-mix(in oklab, var(--surface) 60%, transparent);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    border: 1px solid var(--border);
+    background-color: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0px var(--ink);
   }
 
   .glass-frosty {
-    background: color-mix(in oklab, var(--surface) 92%, transparent);
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
-    border: 1px solid oklch(1 0 0 / 0.12);
-    box-shadow: 0 16px 40px -10px oklch(0 0 0 / 0.65), inset 0 1px 0 0 oklch(1 0 0 / 0.1);
+    background-color: var(--paper-deep);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0px var(--ink);
   }
 
+  /* Key emphasis words in solid blue with proper descender clearance */
   .text-gradient {
-    background: linear-gradient(135deg, var(--foreground) 30%, var(--primary) 70%, var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--blue);
     display: inline-block;
-    padding-right: 0.15em;
-    padding-bottom: 0.2em;
-    margin-bottom: -0.2em;
-    /* Gives the italic slant and bottom descenders enough room to render */
   }
 
+  /* Remove dark grid and heavy grain textures */
   .grid-bg {
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    display: none !important;
   }
 
   .grain {
-    position: absolute;
-    inset: -100%;
-    pointer-events: none;
-    opacity: 0.06;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    animation: grain 8s steps(10) infinite;
+    display: none !important;
+  }
+
+  /* Sketchbook Primary Button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--blue);
+    color: #ffffff;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0px var(--ink);
+    border-radius: 12px;
+    font-weight: 500;
+    transform: rotate(-0.5deg);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) rotate(-0.5deg);
+    background-color: var(--blue-deep);
+    box-shadow: 6px 6px 0px var(--ink);
+  }
+  .btn-primary:active {
+    transform: translateY(1px) rotate(0deg);
+    box-shadow: 1px 1px 0px var(--ink);
+  }
+
+  /* Sketchbook Secondary Button */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--paper);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0px var(--ink);
+    border-radius: 12px;
+    font-weight: 500;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  }
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    background-color: var(--paper-deep);
+    box-shadow: 6px 6px 0px var(--ink);
+  }
+  .btn-secondary:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px var(--ink);
+  }
+
+  /* Sketchbook Card Base */
+  .card-sketch {
+    background-color: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0px var(--ink);
+    border-radius: 16px 14px 18px 13px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-sketch:hover {
+    transform: translateY(-2px) rotate(-0.4deg);
+    box-shadow: 6px 6px 0px var(--ink);
+  }
+
+  /* Sketchbook Form Input */
+  .input-sketch {
+    background-color: var(--paper);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px var(--sky);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .input-sketch:focus {
+    border-color: var(--blue);
+    box-shadow: 4px 4px 0px var(--blue);
+  }
+
+  /* Sketchbook Link with Doodle Underline effect */
+  .link-sketch {
+    color: var(--blue);
+    text-decoration: none;
+    position: relative;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .link-sketch:hover {
+    color: var(--blue-deep);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
   }
 
   .no-cursor,
   .no-cursor * {
-    cursor: none;
+    cursor: default;
   }
 }
 

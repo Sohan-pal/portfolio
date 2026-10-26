@@ -9,13 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        default:
+          "bg-[var(--blue)] text-white border-2 border-[var(--ink)] shadow-[4px_4px_0px_var(--ink)] hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_var(--ink)] active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--ink)] transition-all rounded-xl",
+        destructive:
+          "bg-destructive text-destructive-foreground border-2 border-[var(--ink)] shadow-[3px_3px_0px_var(--ink)] hover:bg-destructive/90 rounded-xl",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "border-2 border-[var(--ink)] bg-[var(--paper)] text-[var(--ink)] shadow-[3px_3px_0px_var(--ink)] hover:bg-[var(--paper-deep)] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_var(--ink)] rounded-xl transition-all",
+        secondary:
+          "bg-[var(--paper)] text-[var(--ink)] border-2 border-[var(--ink)] shadow-[4px_4px_0px_var(--ink)] hover:-translate-y-0.5 hover:bg-[var(--paper-deep)] hover:shadow-[6px_6px_0px_var(--ink)] active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--ink)] transition-all rounded-xl",
+        ghost: "hover:bg-[var(--paper-deep)] text-[var(--ink)] rounded-xl",
+        link: "text-[var(--blue)] underline-offset-4 hover:underline hover:decoration-wavy font-medium",
       },
       size: {
         default: "h-9 px-4 py-2",

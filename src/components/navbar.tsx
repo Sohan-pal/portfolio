@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
+import { ScribbleUnderline } from "@/components/doodles";
 
 const links = [
   { to: "/", label: "Home" },
@@ -27,58 +28,64 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -40, opacity: 0 }}
+      initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all ${
-        scrolled ? "py-3" : "py-5"
-      }`}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "py-3" : "py-5"
+        }`}
     >
       <div className="mx-auto max-w-6xl px-5">
         <div
-          className={`flex items-center justify-between rounded-full px-5 py-3 transition-all ${
-            scrolled || open
-              ? "glass shadow-soft max-md:glass-frosty"
-              : ""
-          }`}
+          className={`flex items-center justify-between rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)]/95 px-5 py-2.5 transition-all shadow-[4px_4px_0px_var(--ink)] ${scrolled ? "bg-[var(--paper)]" : ""
+            }`}
         >
-          <Link to="/" className="group flex items-center gap-2">
-            <span className="relative inline-block h-2.5 w-2.5 rounded-full bg-primary">
-              <span className="absolute inset-0 animate-ping rounded-full bg-primary/60" />
-            </span>
-            <span className="font-display text-sm tracking-tight">
-              {profile.shortName}<span className="text-muted-foreground">.design</span>
+          {/* Brand Logo */}
+          <Link to="/" className="group flex items-center gap-1.5">
+            <span className="font-display text-xl font-bold tracking-tight text-[var(--ink)]">
+              {profile.shortName}
+              <span className="text-[var(--blue)]">.</span>
             </span>
           </Link>
-          <nav className="hidden md:flex items-center gap-1">
+
+          {/* Centered Desktop Nav Links */}
+          <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => {
               const active = location.pathname === l.to;
               return (
                 <Link
                   key={l.to}
                   to={l.to}
-                  className="relative rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className={`relative py-1 text-sm font-medium transition-colors ${active
+                      ? "text-[var(--blue)] font-bold"
+                      : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
+                    }`}
                 >
+                  <span>{l.label}</span>
                   {active && (
-                    <motion.span
-                      layoutId="nav-active"
-                      className="absolute inset-0 rounded-full bg-secondary"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
+                    <motion.div
+                      layoutId="nav-active-doodle"
+                      className="absolute -bottom-1.5 inset-x-0 flex justify-center"
+                      transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                    >
+                      <ScribbleUnderline variant="single" height={8} color="var(--blue)" />
+                    </motion.div>
                   )}
-                  <span className="relative">{l.label}</span>
                 </Link>
               );
             })}
           </nav>
+
+          {/* "Let's talk" Primary CTA */}
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+            className="hidden md:inline-flex items-center gap-2 rounded-xl border-2 border-[var(--ink)] bg-[var(--blue)] px-4 py-2 text-sm font-semibold text-white shadow-[3px_3px_0px_var(--ink)] transition-all hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_var(--ink)] active:translate-y-1 active:shadow-[1px_1px_0px_var(--ink)] -rotate-0.5"
           >
             Let's talk
           </Link>
+
+          {/* Mobile Menu Button */}
           <button
-            className="md:hidden rounded-full p-2 text-foreground"
+            className="md:hidden rounded-lg border border-[var(--ink)] bg-[var(--paper-deep)] p-1.5 text-[var(--ink)] shadow-[2px_2px_0px_var(--ink)]"
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
           >
@@ -86,23 +93,38 @@ export function Navbar() {
           </button>
         </div>
 
+        {/* Mobile Nav Dropdown */}
         <AnimatePresence>
           {open && (
             <motion.nav
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="glass-frosty mt-2 rounded-2xl p-3 md:hidden"
+              exit={{ opacity: 0, y: -8 }}
+              className="mt-2 rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper-deep)] p-3 shadow-[4px_4px_0px_var(--ink)] md:hidden"
             >
-              {links.map((l) => (
+              {links.map((l) => {
+                const active = location.pathname === l.to;
+                return (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${active
+                        ? "bg-[var(--sky-light)] text-[var(--blue)] font-bold border border-[var(--ink)]"
+                        : "text-[var(--ink)] hover:bg-[var(--paper)]"
+                      }`}
+                  >
+                    {l.label}
+                  </Link>
+                );
+              })}
+              <div className="mt-2 pt-2 border-t border-[var(--line)]">
                 <Link
-                  key={l.to}
-                  to={l.to}
-                  className="block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary/60 active:bg-secondary"
+                  to="/contact"
+                  className="block w-full text-center rounded-xl border-2 border-[var(--ink)] bg-[var(--blue)] px-4 py-2 text-sm font-semibold text-white shadow-[3px_3px_0px_var(--ink)]"
                 >
-                  {l.label}
+                  Let's talk
                 </Link>
-              ))}
+              </div>
             </motion.nav>
           )}
         </AnimatePresence>
