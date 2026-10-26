@@ -9,13 +9,14 @@ import {
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/custom-cursor";
+import { MouseSpot } from "@/components/mouse-spot";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SkyLayer } from "@/components/sky-layer";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[var(--paper)] px-4">
-      <div className="max-w-md text-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper-deep)] p-8 shadow-[4px_4px_0px_var(--ink)]">
+      <div className="max-w-md text-center rounded-2xl border border-[var(--line)] bg-[var(--paper-deep)] p-8" style={{ boxShadow: "0 4px 16px rgba(14,26,58,0.1)" }}>
         <h1 className="font-display text-7xl font-bold text-[var(--ink)]">404</h1>
         <h2 className="mt-4 font-display text-xl font-bold text-[var(--ink)]">Page not found</h2>
         <p className="mt-2 text-sm text-[var(--ink-soft)]">
@@ -40,7 +41,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[var(--paper)] px-4">
-      <div className="max-w-md text-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper-deep)] p-8 shadow-[4px_4px_0px_var(--ink)]">
+      <div className="max-w-md text-center rounded-2xl border border-[var(--line)] bg-[var(--paper-deep)] p-8" style={{ boxShadow: "0 4px 16px rgba(14,26,58,0.1)" }}>
         <h1 className="font-display text-xl font-bold tracking-tight text-[var(--ink)]">
           This page didn't load
         </h1>
@@ -81,10 +82,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SkyLayer />
+      <MouseSpot />
       <ScrollProgress />
       <CustomCursor />
       <Navbar />
-      <main className="relative z-10">
+      <main className="relative z-10 grid-bg">
         <Outlet />
       </main>
       <Footer />

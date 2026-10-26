@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[var(--blue)] text-white border-2 border-[var(--ink)] shadow-[4px_4px_0px_var(--ink)] hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_var(--ink)] active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--ink)] transition-all rounded-xl",
+          "bg-[var(--blue)] text-white border border-transparent shadow-[0_2px_12px_rgba(22,119,255,0.32)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(22,119,255,0.4)] active:translate-y-0.5 transition-all rounded-xl",
         destructive:
-          "bg-destructive text-destructive-foreground border-2 border-[var(--ink)] shadow-[3px_3px_0px_var(--ink)] hover:bg-destructive/90 rounded-xl",
+          "bg-destructive text-destructive-foreground border border-transparent shadow-[0_2px_8px_rgba(229,62,62,0.3)] hover:bg-destructive/90 rounded-xl",
         outline:
-          "border-2 border-[var(--ink)] bg-[var(--paper)] text-[var(--ink)] shadow-[3px_3px_0px_var(--ink)] hover:bg-[var(--paper-deep)] hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_var(--ink)] rounded-xl transition-all",
+          "border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] shadow-[0_2px_8px_rgba(14,26,58,0.08)] hover:bg-[var(--paper-deep)] hover:-translate-y-0.5 rounded-xl transition-all",
         secondary:
-          "bg-[var(--paper)] text-[var(--ink)] border-2 border-[var(--ink)] shadow-[4px_4px_0px_var(--ink)] hover:-translate-y-0.5 hover:bg-[var(--paper-deep)] hover:shadow-[6px_6px_0px_var(--ink)] active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--ink)] transition-all rounded-xl",
+          "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] shadow-[0_2px_8px_rgba(14,26,58,0.08)] hover:-translate-y-0.5 hover:bg-[var(--paper-deep)] active:translate-y-0.5 transition-all rounded-xl",
         ghost: "hover:bg-[var(--paper-deep)] text-[var(--ink)] rounded-xl",
         link: "text-[var(--blue)] underline-offset-4 hover:underline hover:decoration-wavy font-medium",
       },

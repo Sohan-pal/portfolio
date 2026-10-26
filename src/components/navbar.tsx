@@ -36,7 +36,7 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-6xl px-5">
         <div
-          className={`flex items-center justify-between rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)]/95 px-5 py-2.5 transition-all shadow-[4px_4px_0px_var(--ink)] ${scrolled ? "bg-[var(--paper)]" : ""
+          className={`flex items-center justify-between rounded-2xl border border-[var(--line)] bg-[var(--paper)]/95 px-5 py-2.5 transition-all ${scrolled ? "bg-[var(--paper)] shadow-sm" : "shadow-sm"
             }`}
         >
           {/* Brand Logo */}
@@ -78,14 +78,14 @@ export function Navbar() {
           {/* "Let's talk" Primary CTA */}
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-xl border-2 border-[var(--ink)] bg-[var(--blue)] px-4 py-2 text-sm font-semibold text-white shadow-[3px_3px_0px_var(--ink)] transition-all hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_var(--ink)] active:translate-y-1 active:shadow-[1px_1px_0px_var(--ink)] -rotate-0.5"
+            className="hidden md:inline-flex items-center gap-2 rounded-xl border border-[var(--line)] bg-[var(--blue)] px-4 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 active:translate-y-0.5"
           >
             Let's talk
           </Link>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden rounded-lg border border-[var(--ink)] bg-[var(--paper-deep)] p-1.5 text-[var(--ink)] shadow-[2px_2px_0px_var(--ink)]"
+            className="md:hidden rounded-lg border border-[var(--line)] bg-[var(--paper-deep)] p-1.5 text-[var(--ink)]"
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
           >
@@ -100,7 +100,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              className="mt-2 rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper-deep)] p-3 shadow-[4px_4px_0px_var(--ink)] md:hidden"
+              className="mt-2 rounded-2xl border border-[var(--line)] bg-[var(--paper-deep)] p-3 shadow-md md:hidden"
             >
               {links.map((l) => {
                 const active = location.pathname === l.to;
@@ -120,7 +120,7 @@ export function Navbar() {
               <div className="mt-2 pt-2 border-t border-[var(--line)]">
                 <Link
                   to="/contact"
-                  className="block w-full text-center rounded-xl border-2 border-[var(--ink)] bg-[var(--blue)] px-4 py-2 text-sm font-semibold text-white shadow-[3px_3px_0px_var(--ink)]"
+                  className="block w-full text-center rounded-xl border border-[var(--line)] bg-[var(--blue)] px-4 py-2 text-sm font-semibold text-white"
                 >
                   Let's talk
                 </Link>

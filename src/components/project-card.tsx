@@ -9,9 +9,10 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
 
   const cardImage = (
     <div
-      className={`relative aspect-[4/3] w-full overflow-hidden rounded-xl border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] ${
+      className={`relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-[var(--line)] ${
         isImage ? "bg-[var(--paper-deep)]" : `bg-gradient-to-br ${project.cover}`
       }`}
+      style={{ boxShadow: "0 2px 10px rgba(14,26,58,0.07)" }}
     >
       {isImage && (
         <img
@@ -21,7 +22,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         />
       )}
       <div className="absolute inset-0 flex items-end justify-between p-4 pointer-events-none">
-        <span className="rounded-full border border-[var(--ink)] bg-[var(--paper)]/90 px-2.5 py-0.5 text-xs font-semibold text-[var(--ink)] shadow-[1px_1px_0px_var(--ink)]">
+        <span className="rounded-full border border-[var(--line)] bg-[var(--paper)]/90 px-2.5 py-0.5 text-xs font-semibold text-[var(--ink-soft)]">
           {project.year}
         </span>
       </div>
@@ -32,7 +33,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           </span>
         </div>
       )}
-      <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] text-[var(--ink)] opacity-0 shadow-[2px_2px_0px_var(--ink)] transition-all duration-300 group-hover:opacity-100 group-hover:rotate-45">
+      <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--blue)] opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:rotate-45">
         <ArrowUpRight size={16} />
       </div>
     </div>
@@ -51,7 +52,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         {project.tools.map((t) => (
           <span
             key={t}
-            className="rounded-full border border-[var(--ink)] bg-[var(--paper-deep)] px-2.5 py-0.5 text-xs font-medium text-[var(--ink)] shadow-[1px_1px_0px_var(--ink)]"
+            className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-2.5 py-0.5 text-xs font-medium text-[var(--ink-soft)]"
           >
             {t}
           </span>
@@ -72,7 +73,14 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="group mx-auto w-full max-w-[840px] rounded-[18px_14px_16px_14px] border-2 border-[var(--ink)] bg-[var(--paper)] p-5 md:p-6 shadow-[4px_4px_0px_var(--ink)] transition-all duration-300 hover:-translate-y-1.5 hover:-rotate-[0.4deg] hover:shadow-[7px_7px_0px_var(--ink)]"
+      className="group mx-auto w-full max-w-[840px] rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-5 md:p-6 transition-all duration-300 hover:-translate-y-2"
+      style={{ boxShadow: "0 2px 12px rgba(14,26,58,0.08)" }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 30px rgba(14,26,58,0.13)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(14,26,58,0.08)";
+      }}
     >
       {project.externalUrl ? (
         <a

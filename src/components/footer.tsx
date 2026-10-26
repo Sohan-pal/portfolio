@@ -58,7 +58,8 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={s.label}
-                className="grid h-10 w-10 place-items-center rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] text-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] transition-all hover:-translate-y-1 hover:shadow-[4px_4px_0px_var(--ink)] hover:text-[var(--blue)]"
+                className="grid h-10 w-10 place-items-center rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] transition-all hover:-translate-y-1 hover:text-[var(--blue)]"
+                style={{ boxShadow: "0 1px 6px rgba(14,26,58,0.08)" }}
               >
                 <s.icon size={18} />
               </a>
@@ -76,7 +77,8 @@ export function Footer() {
           <p>© {new Date().getFullYear()} {profile.name}. Handcrafted sketchbook theme.</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group inline-flex items-center gap-2 rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3.5 py-1.5 text-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] transition-all hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_var(--ink)] hover:text-[var(--blue)]"
+            className="group inline-flex items-center gap-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-3.5 py-1.5 text-[var(--ink)] transition-all hover:-translate-y-0.5 hover:text-[var(--blue)]"
+            style={{ boxShadow: "0 1px 6px rgba(14,26,58,0.08)" }}
           >
             Back to top
             <ArrowUp size={14} className="transition-transform group-hover:-translate-y-0.5" />

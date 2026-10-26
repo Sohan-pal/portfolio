@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { timeline } from "@/data/experience";
+import { SparkTicks, Sparkle, ScribbleUnderline } from "@/components/doodles";
 
 export const Route = createFileRoute("/about")({
   component: About,
@@ -9,53 +10,102 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <div className="relative pt-40 pb-24">
+    <div className="relative pt-36 pb-24">
       <div className="mx-auto max-w-5xl px-5">
-        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">About</p>
+        {/* Section label */}
+        <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--ink-soft)]">
+          <Sparkle size={13} color="var(--blue)" />
+          About
+        </p>
+
+        {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mt-3 font-display text-5xl leading-tight md:text-7xl"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-3 font-display text-5xl leading-tight md:text-7xl font-bold tracking-tight text-[var(--ink)]"
         >
-          A designer who treats <span className="text-gradient italic">small details</span> like they matter.
+          A designer who treats{" "}
+          <span className="relative inline-block">
+            <span className="text-[var(--blue)] italic">small details</span>
+            <span className="absolute -bottom-2 left-0 w-full">
+              <ScribbleUnderline variant="wave" height={10} color="var(--blue)" />
+            </span>
+          </span>{" "}
+          like they matter.
         </motion.h1>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-3">
-          <div className="md:col-span-2 space-y-5 text-lg leading-relaxed text-foreground/90">
+        {/* Body + Info Card */}
+        <div className="mt-16 grid gap-10 md:grid-cols-3">
+          {/* Bio copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="md:col-span-2 space-y-5 text-lg leading-relaxed text-[var(--ink)]"
+          >
             <p>{profile.bio}</p>
-            <p className="text-muted-foreground">
-              From typography to bold visual graphics, I enjoy designing experiences that feel polished, expressive, and human.
+            <p className="text-[var(--ink-soft)]">
+              From typography to bold visual graphics, I enjoy designing
+              experiences that feel polished, expressive, and human.
             </p>
-            <p className="text-muted-foreground">
-              Currently I am exploring UI/UX design systems, branding, and visual design through personal projects, collaborating with other designers and constant experimentation.
+            <p className="text-[var(--ink-soft)]">
+              Currently I am exploring UI/UX design systems, branding, and
+              visual design through personal projects, collaborating with other
+              designers and constant experimentation.
             </p>
-          </div>
-          <aside className="space-y-6 rounded-3xl border border-border p-6">
+          </motion.div>
+
+          {/* Info aside card */}
+          <motion.aside
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-6 space-y-5 h-fit"
+            style={{ boxShadow: "0 2px 12px rgba(14,26,58,0.08)" }}
+          >
             <Row label="Based in" value={profile.location} />
             <Row label="Email" value={profile.email} />
-            <Row label="Status" value={profile.available ? "Open to work" : "Currently booked"} />
+            <Row
+              label="Status"
+              value={profile.available ? "Open to work" : "Currently booked"}
+              highlight={profile.available}
+            />
             <Row label="Focus" value="UI/UX · Visual Design · Branding" />
-          </aside>
+          </motion.aside>
         </div>
 
+        {/* Timeline */}
         <section className="mt-32">
-          <h2 className="font-display text-4xl md:text-5xl">Timeline.</h2>
-          <ol className="mt-12 space-y-2">
+          <div className="flex items-center gap-3 mb-12">
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--ink)]">
+              Timeline.
+            </h2>
+            <SparkTicks size={28} color="var(--sun)" />
+          </div>
+
+          <ol className="space-y-0">
             {timeline.map((t, i) => (
               <motion.li
                 key={i}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="group grid grid-cols-12 items-baseline gap-4 border-b border-border py-6 transition-colors hover:bg-secondary/30"
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="group grid grid-cols-12 items-baseline gap-4 border-b-2 border-[var(--line)] py-6 transition-all hover:bg-[var(--paper-deep)] hover:px-3 rounded-lg"
               >
-                <span className="col-span-2 font-mono text-sm text-primary">{t.year}</span>
+                <span className="col-span-2 font-mono text-sm font-bold text-[var(--blue)]">
+                  {t.year}
+                </span>
                 <div className="col-span-10 md:col-span-7">
-                  <p className="font-display text-xl">{t.title}</p>
-                  <p className="text-sm text-muted-foreground">{t.detail}</p>
+                  <p className="font-display text-xl font-semibold text-[var(--ink)]">
+                    {t.title}
+                  </p>
+                  <p className="mt-1 text-sm text-[var(--ink-soft)]">
+                    {t.detail}
+                  </p>
                 </div>
-                <span className="col-span-12 text-xs text-muted-foreground md:col-span-3 md:text-right">
+                <span className="col-span-12 text-xs text-[var(--ink-soft)] font-medium md:col-span-3 md:text-right">
                   {t.org}
                 </span>
               </motion.li>
@@ -67,11 +117,25 @@ function About() {
   );
 }
 
-function Row({ label, value }: { label: string; value: string }) {
+function Row({
+  label,
+  value,
+  highlight,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+}) {
   return (
     <div>
-      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
-      <p className="mt-1 text-sm">{value}</p>
+      <p className="text-xs uppercase tracking-[0.2em] text-[var(--ink-soft)] font-semibold">
+        {label}
+      </p>
+      <p
+        className={`mt-1 text-sm font-medium ${highlight ? "text-[var(--blue)]" : "text-[var(--ink)]"}`}
+      >
+        {value}
+      </p>
     </div>
   );
 }

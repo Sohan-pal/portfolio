@@ -150,26 +150,28 @@ function Hero() {
                 <Sparkle size={20} color="var(--sky, #A9D6FA)" />
               </motion.div>
 
-              {/* Portrait Image inside wobbly frame with hard paper shadow */}
-              <WobblyFrame
-                fill="paper"
-                shadow="ink"
-                tilt={-0.6}
-                strokeWidth={3}
-                className="w-full aspect-[4/4.5] overflow-hidden border-2 shadow-[6px_6px_0px_var(--ink)]"
-              >
-                <img
-                  src="/fonts/sohan illustration 2.png"
-                  alt="Sohan sketch portrait"
-                  className="w-full h-full object-cover object-top"
-                  onError={(e) => {
-                    // Fallback to root public if path resolution differs
-                    if (!e.currentTarget.src.includes("public")) {
-                      e.currentTarget.src = "/sohan illustration 2.png";
-                    }
-                  }}
-                />
-              </WobblyFrame>
+              {/* Portrait Image inside wobbly frame with soft shadow */}
+              <div style={{ boxShadow: "0 4px 20px rgba(14,26,58,0.12)", borderRadius: "16px 14px 18px 13px" }}>
+                <WobblyFrame
+                  fill="paper"
+                  shadow="none"
+                  tilt={-0.6}
+                  strokeWidth={3}
+                  className="w-full aspect-[4/4.5] overflow-hidden border border-[var(--line)]"
+                >
+                  <img
+                    src="/fonts/sohan illustration 2.png"
+                    alt="Sohan sketch portrait"
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      // Fallback to root public if path resolution differs
+                      if (!e.currentTarget.src.includes("public")) {
+                        e.currentTarget.src = "/sohan illustration 2.png";
+                      }
+                    }}
+                  />
+                </WobblyFrame>
+              </div>
 
               {/* Cream clouds overlapping lower edge of portrait */}
               <div className="absolute -bottom-7 -left-10 z-30 pointer-events-none">
@@ -261,7 +263,8 @@ function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="rounded-[18px_14px_16px_14px] border-2 border-[var(--ink)] bg-[var(--paper)] p-6 shadow-[4px_4px_0px_var(--ink)] transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_var(--ink)]"
+              className="rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-6 transition-all hover:-translate-y-1"
+              style={{ boxShadow: "0 2px 10px rgba(14,26,58,0.07)" }}
             >
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink-soft)]">
                 {g.label}
@@ -270,7 +273,7 @@ function SkillsSection() {
                 {g.items.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border-2 border-[var(--ink)] bg-[var(--cloud)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] transition-all hover:scale-105 hover:bg-[var(--sky-light)] hover:text-[var(--blue)]"
+                    className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ink-soft)] transition-all hover:scale-105 hover:bg-[var(--sky-light)] hover:text-[var(--blue)]"
                   >
                     {s}
                   </span>
@@ -302,7 +305,8 @@ function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative flex flex-col justify-between rounded-[18px_14px_16px_14px] border-2 border-[var(--ink)] bg-[var(--paper)] p-6 shadow-[4px_4px_0px_var(--ink)] transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_var(--ink)]"
+              className="relative flex flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-6 transition-all hover:-translate-y-1"
+              style={{ boxShadow: "0 2px 10px rgba(14,26,58,0.07)" }}
             >
               <span className="font-display text-6xl leading-none text-[var(--blue)] font-bold select-none -mb-3">
                 “
