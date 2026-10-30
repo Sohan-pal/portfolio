@@ -74,7 +74,7 @@ export function Footer() {
 
         {/* Bottom Metadata & Back to top */}
         <div className="flex flex-col items-start justify-between gap-4 text-xs font-medium text-[var(--ink-soft)] md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} {profile.name}. Handcrafted sketchbook theme.</p>
+          <p>© {new Date().getFullYear()} {profile.name}.</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="group inline-flex items-center gap-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-3.5 py-1.5 text-[var(--ink)] transition-all hover:-translate-y-0.5 hover:text-[var(--blue)]"

@@ -65,7 +65,6 @@ function Hero() {
                   Sohan
                 </span>
                 <span className="absolute -top-3 -right-8 md:-top-4 md:-right-10 pointer-events-none">
-                  <SparkTicks size={38} color="var(--sun, #FFC83D)" />
                 </span>
               </div>
               <div className="w-full max-w-[280px] -mt-1 md:-mt-2">
@@ -249,31 +248,27 @@ function SkillsSection() {
   return (
     <section className="relative bg-[var(--paper-deep)] border-y-2 border-[var(--ink)] py-24 md:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <div className="mb-14 flex items-center gap-3">
+        <div className="mb-14 flex items-center justify-center text-center">
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--ink)]">
-            Creative <span className="text-[var(--blue)]">stack</span>.
+            What's in my bag ?
           </h2>
-          <SparkTicks size={30} color="var(--sun)" />
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="mx-auto max-w-3xl">
           {skillGroups.map((g, idx) => (
             <motion.div
-              key={g.label}
+              key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-6 transition-all hover:-translate-y-1"
+              className="rounded-3xl border border-[var(--line)] bg-[var(--paper)] p-8 md:p-10"
               style={{ boxShadow: "0 2px 10px rgba(14,26,58,0.07)" }}
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink-soft)]">
-                {g.label}
-              </p>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap justify-center gap-3">
                 {g.items.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ink-soft)] transition-all hover:scale-105 hover:bg-[var(--sky-light)] hover:text-[var(--blue)]"
+                    className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-4.5 py-2 text-sm font-semibold text-[var(--ink-soft)]"
                   >
                     {s}
                   </span>
