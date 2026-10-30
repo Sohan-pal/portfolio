@@ -15,14 +15,14 @@ function About() {
         {/* Section label */}
 
         {/* Headline */}
-        <motion.h1
+        <motion.h2
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-3 font-display text-5xl leading-tight md:text-7xl font-bold tracking-tight text-[var(--ink)]"
         >
-          <span className="highlight">small details</span>.
-        </motion.h1>
+          a little bit about <span className="highlight">myself</span>.
+        </motion.h2>
 
         {/* Body + Info Card */}
         <div className="mt-16 grid gap-10 md:grid-cols-3">

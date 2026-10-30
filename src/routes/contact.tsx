@@ -69,9 +69,6 @@ function Contact() {
     <div className="relative pt-36 pb-24">
       <div className="mx-auto max-w-5xl px-5">
         {/* Section label */}
-        <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--ink-soft)]">
-          Contact
-        </p>
 
         {/* Headline */}
         <motion.h1
@@ -89,8 +86,6 @@ function Contact() {
           transition={{ delay: 0.2 }}
           className="mt-5 max-w-xl text-[var(--ink-soft)] text-base leading-relaxed"
         >
-          Briefs, internships, collaborations or just nice notes about typography — my inbox is
-          open.
         </motion.p>
 
         {/* Grid: Aside + Form */}
