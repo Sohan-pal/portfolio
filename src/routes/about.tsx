@@ -21,7 +21,7 @@ function About() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-3 font-display text-5xl leading-tight md:text-7xl font-bold tracking-tight text-[var(--ink)]"
         >
-          A designer who treats <span className="highlight">small details</span> like they matter.
+          <span className="highlight">small details</span>.
         </motion.h1>
 
         {/* Body + Info Card */}

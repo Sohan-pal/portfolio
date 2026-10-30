@@ -29,8 +29,6 @@ function Work() {
           transition={{ delay: 0.2 }}
           className="mt-5 max-w-xl text-[var(--ink-soft)] text-base leading-relaxed"
         >
-          A small archive of things I've made — student briefs, concept work and the occasional
-          client project.
         </motion.p>
 
         {/* Project list */}
