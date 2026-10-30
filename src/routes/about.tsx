@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { timeline } from "@/data/experience";
-import { SparkTicks, Sparkle, ScribbleUnderline } from "@/components/doodles";
+import { Tape } from "@/components/tape";
 
 export const Route = createFileRoute("/about")({
   component: About,
@@ -13,10 +13,6 @@ function About() {
     <div className="relative pt-36 pb-24">
       <div className="mx-auto max-w-5xl px-5">
         {/* Section label */}
-        <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--ink-soft)]">
-          <Sparkle size={13} color="var(--blue)" />
-          About
-        </p>
 
         {/* Headline */}
         <motion.h1
@@ -25,14 +21,7 @@ function About() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-3 font-display text-5xl leading-tight md:text-7xl font-bold tracking-tight text-[var(--ink)]"
         >
-          A designer who treats{" "}
-          <span className="relative inline-block">
-            <span className="text-[var(--blue)] italic">small details</span>
-            <span className="absolute -bottom-2 left-0 w-full">
-              <ScribbleUnderline variant="wave" height={10} color="var(--blue)" />
-            </span>
-          </span>{" "}
-          like they matter.
+          A designer who treats <span className="highlight">small details</span> like they matter.
         </motion.h1>
 
         {/* Body + Info Card */}
@@ -46,13 +35,12 @@ function About() {
           >
             <p>{profile.bio}</p>
             <p className="text-[var(--ink-soft)]">
-              From typography to bold visual graphics, I enjoy designing
-              experiences that feel polished, expressive, and human.
+              From typography to bold visual graphics, I enjoy designing experiences that feel
+              polished, expressive, and human.
             </p>
             <p className="text-[var(--ink-soft)]">
-              Currently I am exploring UI/UX design systems, branding, and
-              visual design through personal projects, collaborating with other
-              designers and constant experimentation.
+              Currently I am exploring UI/UX design systems, branding, and visual design through
+              personal projects, collaborating with other designers and constant experimentation.
             </p>
           </motion.div>
 
@@ -61,9 +49,15 @@ function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-6 space-y-5 h-fit"
+            className="relative rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-6 space-y-5 h-fit"
             style={{ boxShadow: "0 2px 12px rgba(14,26,58,0.08)" }}
           >
+            {/* Yellow Tape on About info card */}
+            <Tape
+              color="sun"
+              rotation={5}
+              className="hidden sm:block absolute -top-2.5 right-6 w-[70px] h-[20px] z-10"
+            />
             <Row label="Based in" value={profile.location} />
             <Row label="Email" value={profile.email} />
             <Row
@@ -79,9 +73,8 @@ function About() {
         <section className="mt-32">
           <div className="flex items-center gap-3 mb-12">
             <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--ink)]">
-              Timeline.
+              <span className="highlight">Timeline</span>.
             </h2>
-            <SparkTicks size={28} color="var(--sun)" />
           </div>
 
           <ol className="space-y-0">
@@ -98,12 +91,8 @@ function About() {
                   {t.year}
                 </span>
                 <div className="col-span-10 md:col-span-7">
-                  <p className="font-display text-xl font-semibold text-[var(--ink)]">
-                    {t.title}
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--ink-soft)]">
-                    {t.detail}
-                  </p>
+                  <p className="font-display text-xl font-semibold text-[var(--ink)]">{t.title}</p>
+                  <p className="mt-1 text-sm text-[var(--ink-soft)]">{t.detail}</p>
                 </div>
                 <span className="col-span-12 text-xs text-[var(--ink-soft)] font-medium md:col-span-3 md:text-right">
                   {t.org}
@@ -117,15 +106,7 @@ function About() {
   );
 }
 
-function Row({
-  label,
-  value,
-  highlight,
-}: {
-  label: string;
-  value: string;
-  highlight?: boolean;
-}) {
+function Row({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
     <div>
       <p className="text-xs uppercase tracking-[0.2em] text-[var(--ink-soft)] font-semibold">

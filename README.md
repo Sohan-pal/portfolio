@@ -8,23 +8,23 @@ A premium, highly polished, and interactive portfolio built for showcasing UI/UX
 
 ## ✨ Key Features
 
-* 🎨 **Dynamic Aesthetics & Branding:** Built with curated OKLCH color spaces, smooth gradients, glassmorphic UI components, and custom typography.
-* ⚡ **Lightning Fast & Responsive:** Powered by Vite, React 18, and TanStack Router for instant page transitions and optimal performance across all devices.
-* 🔗 **Flexible Project Showcases:** Supports deep internal case study pages (`/work/$slug`) as well as direct external links to Behance, Dribbble, or Notion presentations.
-* 📬 **Live Contact Integration:** Fully functional, serverless contact form integrated with **Web3Forms** that delivers messages instantly to Gmail.
-* 📁 **Centralized Content Management:** Entire site content (projects, bio, experience, skills, socials) is cleanly organized in simple TypeScript data files for effortless updating.
+- 🎨 **Dynamic Aesthetics & Branding:** Built with curated OKLCH color spaces, smooth gradients, glassmorphic UI components, and custom typography.
+- ⚡ **Lightning Fast & Responsive:** Powered by Vite, React 18, and TanStack Router for instant page transitions and optimal performance across all devices.
+- 🔗 **Flexible Project Showcases:** Supports deep internal case study pages (`/work/$slug`) as well as direct external links to Behance, Dribbble, or Notion presentations.
+- 📬 **Live Contact Integration:** Fully functional, serverless contact form integrated with **Web3Forms** that delivers messages instantly to Gmail.
+- 📁 **Centralized Content Management:** Entire site content (projects, bio, experience, skills, socials) is cleanly organized in simple TypeScript data files for effortless updating.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Framework:** [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
-* **Language:** [TypeScript](https://www.typescriptlang.org/)
-* **Routing:** [TanStack Router](https://tanstack.com/router/latest)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/) + Custom CSS (`oklch` design tokens)
-* **Motion & Animation:** [Framer Motion](https://www.framer.com/motion/)
-* **Icons:** [Lucide React](https://lucide.dev/) + Custom SVGs
-* **Form Handling:** [Web3Forms API](https://web3forms.com/)
+- **Framework:** [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Routing:** [TanStack Router](https://tanstack.com/router/latest)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) + Custom CSS (`oklch` design tokens)
+- **Motion & Animation:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/) + Custom SVGs
+- **Form Handling:** [Web3Forms API](https://web3forms.com/)
 
 ---
 
@@ -51,31 +51,38 @@ src/
 ## 🚀 Getting Started (Local Development)
 
 ### Prerequisites
+
 Make sure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
 
 ### 1. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Start the Development Server
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:5173](http://localhost:5173) in your browser to view the site.
 
 ### 3. Build for Production
+
 ```bash
 npm run build
 ```
+
 Generates an optimized, minified bundle in the `dist/` directory ready for deployment on Vercel, Netlify, or GitHub Pages.
 
 ---
 
 ## 📬 Contact Form Configuration
 
-The contact form in `src/routes/contact.tsx` is fully integrated with [Web3Forms](https://web3forms.com/). Messages are forwarded directly to the configured email address. 
-* To update the receiving email or get a new access key, visit Web3Forms and replace `access_key` in the fetch request.
+The contact form in `src/routes/contact.tsx` is fully integrated with [Web3Forms](https://web3forms.com/). Messages are forwarded directly to the configured email address.
+
+- To update the receiving email or get a new access key, visit Web3Forms and replace `access_key` in the fetch request.
 
 ---
 

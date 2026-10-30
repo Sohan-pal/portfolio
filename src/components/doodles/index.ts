@@ -1,10 +1,5 @@
 export { SparkTicks } from "./spark-ticks";
-export { Sparkle } from "./sparkle";
-export { CloudCluster } from "./cloud-cluster";
-export { BrushWash } from "./brush-wash";
-export { Bird } from "./bird";
 export { CurvedArrow } from "./curved-arrow";
 export { ScribbleUnderline } from "./scribble-underline";
 export { WavyDivider } from "./wavy-divider";
 export { WobblyFrame } from "./wobbly-frame";
-export { SectionCloudDivider } from "./section-divider";

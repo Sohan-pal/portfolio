@@ -25,12 +25,7 @@ export function CurvedArrow({
         aria-hidden="true"
         {...props}
       >
-        <path
-          d="M12 4 C18 14 18 28 15 40"
-          stroke={color}
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
+        <path d="M12 4 C18 14 18 28 15 40" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
         <path
           d="M7 32 C10 36 14 41 15 42 C17 39 21 34 24 31"
           stroke={color}
@@ -54,12 +49,7 @@ export function CurvedArrow({
         aria-hidden="true"
         {...props}
       >
-        <path
-          d="M8 28 C12 20 18 14 28 8"
-          stroke={color}
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
+        <path d="M8 28 C12 20 18 14 28 8" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
         <path
           d="M18 7 C23 7 27 7.5 28.5 8 C28 9.5 28 14 27.5 19"
           stroke={color}
@@ -83,12 +73,7 @@ export function CurvedArrow({
       aria-hidden="true"
       {...props}
     >
-      <path
-        d="M6 24 C14 8 32 6 48 18"
-        stroke={color}
-        strokeWidth="2.8"
-        strokeLinecap="round"
-      />
+      <path d="M6 24 C14 8 32 6 48 18" stroke={color} strokeWidth="2.8" strokeLinecap="round" />
       <path
         d="M38 10 C42 13 47 17 49 19 C48 24 45 29 42 32"
         stroke={color}

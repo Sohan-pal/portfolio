@@ -1,22 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
+import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 import { skillGroups } from "@/data/skills";
 import { ProjectCard } from "@/components/project-card";
 import { Magnetic } from "@/components/magnetic";
-import {
-  SparkTicks,
-  Sparkle,
-  CloudCluster,
-  BrushWash,
-  CurvedArrow,
-  ScribbleUnderline,
-  WobblyFrame,
-  SectionCloudDivider,
-} from "@/components/doodles";
+import { Tape } from "@/components/tape";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,186 +18,153 @@ function Index() {
   return (
     <div className="relative">
       <Hero />
-      <Marquee />
-      <SectionCloudDivider fill="paper" className="-mt-1" />
       <SelectedWork />
       <SkillsSection />
-      <SectionCloudDivider fill="paper" className="-mt-1" />
       <Testimonials />
     </div>
   );
 }
 
 function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+  const [isSettled, setIsSettled] = useState(false);
+
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-32 pb-20">
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-5">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* Left Column: Stacked Headline & Info */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            {/* Line 1: "Hi, I'm" */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display text-[clamp(2.5rem,6.5vw,4.8rem)] font-bold leading-tight tracking-tight text-[var(--ink)]"
-            >
+    <section className="relative flex lg:min-h-[100svh] items-center justify-center pt-32 pb-24 overflow-x-clip">
+      <div className="relative z-10 mx-auto w-full max-w-4xl px-4 flex flex-col items-center text-center gap-8 md:gap-10">
+        {/* Name Strip with Sellotape and "Hi, I'm" */}
+        <div className="relative inline-block my-2">
+          {/* Sellotape sticking the strip to the page */}
+          <motion.div
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.25, delay: 0.45, ease: "easeOut" }}
+            className="absolute -top-3 md:-top-5 left-[42%] -translate-x-1/2 z-30 pointer-events-none"
+          >
+            <Tape
+              color="blue"
+              rotation={-7}
+              className="w-[90px] h-[26px] md:w-[130px] md:h-[36px]"
+            />
+          </motion.div>
+
+          {/* Semantic Heading wrapping "Hi, I'm" and "Sohan" */}
+          <h1 className="relative inline-block m-0 p-0">
+            {/* "Hi, I'm" small, in --ink, above left part of strip, rotated about -3deg, overlapping top edge */}
+            <span className="absolute -top-5 left-2 sm:-top-7 sm:left-4 md:-top-8 md:left-6 z-20 -rotate-[3deg] text-base sm:text-lg md:text-xl font-bold tracking-tight text-[var(--ink)] font-display pointer-events-none select-none">
               Hi, I'm
-            </motion.div>
+            </span>
 
-            {/* Line 2: "Sohan" with 3-tick spark at top-right & underline */}
+            {/* Strip Wrapper with torn-edge SVG and text */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="relative inline-block mt-1 self-start"
+              initial={{ y: -24, rotate: -4 }}
+              animate={
+                isSettled && !shouldReduceMotion
+                  ? { rotate: [-1.5, -1.9, -1.1, -1.5], y: 0 }
+                  : { y: 0, rotate: -1.5 }
+              }
+              transition={
+                isSettled && !shouldReduceMotion
+                  ? {
+                      rotate: {
+                        duration: 6,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        repeatType: "mirror",
+                      },
+                    }
+                  : { type: "spring", stiffness: 120, damping: 14 }
+              }
+              onAnimationComplete={() => setIsSettled(true)}
+              className="relative inline-block px-8 py-4 md:px-14 md:py-6"
+              style={{
+                transformOrigin: "42% 0%",
+                transform: "rotate(-1.5deg)",
+              }}
             >
-              <div className="relative inline-flex items-center">
-                <span className="font-display text-[clamp(3.5rem,9.5vw,6.8rem)] font-bold leading-[0.95] tracking-tight text-[var(--blue)]">
-                  Sohan
-                </span>
-                <span className="absolute -top-3 -right-8 md:-top-4 md:-right-10 pointer-events-none">
-                </span>
-              </div>
-              <div className="w-full max-w-[280px] -mt-1 md:-mt-2">
-                <ScribbleUnderline variant="single" height={14} color="var(--blue, #1677FF)" />
-              </div>
-            </motion.div>
-
-            {/* Subtext: Current copy kept exactly as is */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.28 }}
-              className="mt-8 max-w-lg text-base md:text-lg text-[var(--ink-soft)] leading-relaxed"
-            >
-              I'm <span className="text-[var(--ink)] font-semibold">{profile.name}</span> — a {profile.role.toLowerCase()} based in {profile.location}. {profile.shortBio}
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 flex flex-wrap items-center gap-4"
-            >
-              <Magnetic>
-                <Link
-                  to="/work"
-                  className="btn-primary px-6 py-3 text-sm font-semibold inline-flex items-center gap-2 group"
-                >
-                  View Work
-                  <ArrowUpRight size={16} className="transition-transform group-hover:rotate-45" />
-                </Link>
-              </Magnetic>
-              <Magnetic>
-                <Link
-                  to="/contact"
-                  className="btn-secondary px-6 py-3 text-sm font-semibold inline-flex items-center gap-2"
-                >
-                  Contact Me
-                </Link>
-              </Magnetic>
-            </motion.div>
-
-            {/* "Scroll to explore" with doodle arrow */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="mt-14 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--ink-soft)]"
-            >
-              <CurvedArrow direction="down" size={18} color="var(--blue)" className="animate-bounce" />
-              <span>Scroll to explore</span>
-            </motion.div>
-          </div>
-
-          {/* Right Column: Sketch Portrait with Sky Wash, Overlapping Clouds, Dove & Sparkles */}
-          <div className="lg:col-span-5 relative flex justify-center items-end mt-8 lg:mt-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-[400px] flex flex-col items-center"
-            >
-              {/* Sky-blue brush wash behind portrait */}
-              <div className="absolute -inset-10 -top-16 pointer-events-none -z-10 flex items-center justify-center opacity-90">
-                <BrushWash variant="backdrop" size={480} color="var(--sky-light, #D6ECFF)" />
-              </div>
-
-              {/* Twinkling Sparkles */}
-              <motion.div
-                className="absolute top-8 -left-6 z-20 pointer-events-none"
-                animate={{ scale: [0.9, 1.15, 0.9], rotate: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              {/* Torn-edge SVG with hard offset shadow path drawn first */}
+              <svg
+                className="absolute inset-0 h-full w-full pointer-events-none"
+                viewBox="0 0 500 120"
+                preserveAspectRatio="none"
+                aria-hidden="true"
               >
-                <Sparkle size={26} color="var(--sun, #FFC83D)" secondary />
-              </motion.div>
-              <motion.div
-                className="absolute top-4 -right-6 z-20 pointer-events-none"
-                animate={{ scale: [1, 0.85, 1], rotate: [0, -8, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                {/* Offset shadow path */}
+                <path
+                  d="M 4 4 L 40 2 L 80 5 L 130 1 L 180 5 L 240 2 L 300 6 L 360 2 L 420 5 L 460 2 L 496 4 L 497 25 L 495 50 L 498 75 L 496 95 L 497 116 L 460 117 L 410 114 L 350 119 L 290 115 L 230 118 L 170 114 L 110 118 L 60 115 L 4 116 L 5 95 L 2 70 L 6 45 L 3 20 Z"
+                  transform="translate(4, 5)"
+                  fill="color-mix(in srgb, var(--ink) 25%, transparent)"
+                />
+                {/* Main torn paper path */}
+                <path
+                  d="M 4 4 L 40 2 L 80 5 L 130 1 L 180 5 L 240 2 L 300 6 L 360 2 L 420 5 L 460 2 L 496 4 L 497 25 L 495 50 L 498 75 L 496 95 L 497 116 L 460 117 L 410 114 L 350 119 L 290 115 L 230 118 L 170 114 L 110 118 L 60 115 L 4 116 L 5 95 L 2 70 L 6 45 L 3 20 Z"
+                  fill="#FBE76C"
+                  style={{ fill: "color-mix(in srgb, var(--sun) 85%, var(--paper))" }}
+                />
+              </svg>
+
+              {/* Text: relative z-10 above the SVG */}
+              <span
+                className="relative z-10 block uppercase font-bold text-[clamp(3.5rem,16vw,11rem)] leading-[0.9] tracking-[-0.02em] text-[var(--ink)] select-none whitespace-nowrap"
+                style={{
+                  fontFamily: "var(--font-name, var(--font-display))",
+                }}
               >
-                <Sparkle size={20} color="var(--sky, #A9D6FA)" />
-              </motion.div>
-
-              {/* Portrait Image inside wobbly frame with soft shadow */}
-              <div style={{ boxShadow: "0 4px 20px rgba(14,26,58,0.12)", borderRadius: "16px 14px 18px 13px" }}>
-                <WobblyFrame
-                  fill="paper"
-                  shadow="none"
-                  tilt={-0.6}
-                  strokeWidth={3}
-                  className="w-full aspect-[4/4.5] overflow-hidden border border-[var(--line)]"
-                >
-                  <img
-                    src="/fonts/sohan illustration 2.png"
-                    alt="Sohan sketch portrait"
-                    className="w-full h-full object-cover object-top"
-                    onError={(e) => {
-                      // Fallback to root public if path resolution differs
-                      if (!e.currentTarget.src.includes("public")) {
-                        e.currentTarget.src = "/sohan illustration 2.png";
-                      }
-                    }}
-                  />
-                </WobblyFrame>
-              </div>
-
-              {/* Cream clouds overlapping lower edge of portrait */}
-              <div className="absolute -bottom-7 -left-10 z-30 pointer-events-none">
-                <CloudCluster variant="compact" size={240} />
-              </div>
-              <div className="absolute -bottom-5 -right-6 z-30 pointer-events-none">
-                <CloudCluster variant="puff" size={150} />
-              </div>
+                Sohan
+              </span>
             </motion.div>
-          </div>
+          </h1>
         </div>
+
+        {/* Existing Paragraph Copy, centered */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.28 }}
+          className="max-w-xl mx-auto text-center text-base md:text-lg text-[var(--ink-soft)] leading-relaxed"
+        >
+          I'm <span className="text-[var(--ink)] font-semibold">{profile.name}</span> — a{" "}
+          {profile.role.toLowerCase()} based in {profile.location}. {profile.shortBio}
+        </motion.p>
+
+        {/* Action Buttons, centered */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-wrap items-center justify-center gap-4"
+        >
+          <Magnetic>
+            <Link
+              to="/work"
+              className="btn-primary px-6 py-3 text-sm font-semibold inline-flex items-center gap-2 group"
+            >
+              View Work
+              <ArrowUpRight size={16} className="transition-transform group-hover:rotate-45" />
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link
+              to="/contact"
+              className="btn-secondary px-6 py-3 text-sm font-semibold inline-flex items-center gap-2"
+            >
+              Contact Me
+            </Link>
+          </Magnetic>
+        </motion.div>
+
+        {/* Desktop-only "Scroll to explore" with Lucide ArrowDown */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="hidden md:flex flex-col items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--ink-soft)] select-none pt-2"
+        >
+          <ArrowDown size={16} className="animate-bounce text-[var(--ink-soft)]" />
+          <span>Scroll to explore</span>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function Marquee() {
-  const words = ["UI/UX", "Branding", "Motion", "Prototyping", "Design systems"];
-  return (
-    <div className="relative overflow-hidden border-y-2 border-[var(--ink)] bg-[var(--paper-deep)] py-7 shadow-[inset_0_2px_0_rgba(14,26,58,0.06)]">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {[...Array(2)].map((_, i) => (
-          <div key={i} className="flex shrink-0 items-center gap-10 pr-10">
-            {words.map((w, idx) => (
-              <div key={w + i + idx} className="flex items-center gap-10">
-                <span className="font-display text-2xl md:text-4xl font-bold tracking-tight text-[var(--ink)]">
-                  {w}
-                </span>
-                <Sparkle size={18} color="var(--sun, #FFC83D)" />
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -215,16 +174,10 @@ function SelectedWork() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="mb-14 flex items-end justify-between">
           <div>
-            <p className="mb-2.5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--ink-soft)]">
-              <Sparkle size={14} color="var(--blue)" /> Selected work
-            </p>
             <div className="flex items-center gap-3">
               <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--ink)]">
-                Featured Projects
+                Featured <span className="highlight">Projects</span>
               </h2>
-              <span className="inline-block translate-y-1">
-                <ScribbleUnderline variant="wave" width={64} height={12} color="var(--blue)" />
-              </span>
             </div>
           </div>
           <Link
@@ -246,11 +199,11 @@ function SelectedWork() {
 
 function SkillsSection() {
   return (
-    <section className="relative bg-[var(--paper-deep)] border-y-2 border-[var(--ink)] py-24 md:py-28">
+    <section className="relative bg-[color-mix(in_srgb,var(--paper-deep)_55%,transparent)] border-y-2 border-[var(--ink)] py-24 md:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mb-14 flex items-center justify-center text-center">
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--ink)]">
-            What's in my bag ?
+            What's in my <span className="highlight">bag ?</span>
           </h2>
         </div>
         <div className="mx-auto max-w-3xl">
@@ -268,7 +221,7 @@ function SkillsSection() {
                 {g.items.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-4.5 py-2 text-sm font-semibold text-[var(--ink-soft)]"
+                    className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-4.5 py-2 text-sm font-semibold text-[var(--ink-soft)] transition-colors hover:bg-[color-mix(in_srgb,var(--sun)_60%,transparent)]"
                   >
                     {s}
                   </span>
@@ -288,9 +241,8 @@ function Testimonials() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="mb-14 flex items-center gap-3">
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[var(--ink)]">
-            Testimonials.
+            <span className="highlight">Testimonials</span>.
           </h2>
-          <Sparkle size={22} color="var(--blue)" />
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
@@ -303,6 +255,11 @@ function Testimonials() {
               className="relative flex flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-6 transition-all hover:-translate-y-1"
               style={{ boxShadow: "0 2px 10px rgba(14,26,58,0.07)" }}
             >
+              <Tape
+                color="sun"
+                rotation={i % 2 === 0 ? -6 : 5}
+                className="hidden sm:block absolute -top-2.5 right-6 w-[70px] h-[20px] z-10"
+              />
               <span className="font-display text-6xl leading-none text-[var(--blue)] font-bold select-none -mb-3">
                 “
               </span>

@@ -28,12 +28,7 @@ export function ScribbleUnderline({
         aria-hidden="true"
         {...props}
       >
-        <path
-          d="M4 8 C35 4 85 10 156 6"
-          stroke={color}
-          strokeWidth="2.8"
-          strokeLinecap="round"
-        />
+        <path d="M4 8 C35 4 85 10 156 6" stroke={color} strokeWidth="2.8" strokeLinecap="round" />
         <path
           d="M12 14 C48 11 105 16 148 12"
           stroke={color}

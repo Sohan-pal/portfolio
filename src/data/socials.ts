@@ -3,7 +3,6 @@ import { BehanceIcon } from "@/components/icons/behance";
 import { profile } from "./profile";
 
 export const socials = [
-
   { label: "Behance", href: "https://www.behance.net/sohanpal06", icon: BehanceIcon },
   { label: "Dribbble", href: "https://dribbble.com/sohanxpal18", icon: Dribbble },
   { label: "Instagram", href: "https://www.instagram.com/_sohan.pal/", icon: Instagram },

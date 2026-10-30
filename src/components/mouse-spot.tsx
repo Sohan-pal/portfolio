@@ -12,8 +12,10 @@ export function MouseSpot() {
     if (!el) return;
 
     let raf = 0;
-    let tx = -200, ty = -200;
-    let cx = -200, cy = -200;
+    let tx = -200,
+      ty = -200;
+    let cx = -200,
+      cy = -200;
 
     function lerp(a: number, b: number, t: number) {
       return a + (b - a) * t;

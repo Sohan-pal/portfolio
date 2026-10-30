@@ -1,10 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   SparkTicks,
-  Sparkle,
-  CloudCluster,
-  BrushWash,
-  Bird,
   CurvedArrow,
   ScribbleUnderline,
   WavyDivider,
@@ -47,15 +43,14 @@ function DesignPreview() {
             Hand-Illustrated <span className="text-[var(--blue)]">Sketchbook</span> System
           </h1>
           <p className="mt-2 text-base text-[var(--ink-soft)] max-w-2xl">
-            Light theme token audit, reusable SVG doodles, hard paper shadows, and typography.
-            This route is temporary and will be removed in Phase 5.
+            Light theme token audit, reusable SVG doodles, hard paper shadows, and typography. This
+            route is temporary and will be removed in Phase 5.
           </p>
         </header>
 
         {/* 1. Color Palette Tokens */}
         <section>
           <div className="flex items-center gap-2 mb-6">
-            <Sparkle size={18} color="var(--blue)" />
             <h2 className="font-display text-2xl font-bold">1. Color Palette Tokens</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -63,24 +58,18 @@ function DesignPreview() {
               <div
                 key={t.name}
                 className="rounded-2xl border-2 border-[var(--ink)] p-4 shadow-[3px_3px_0px_var(--ink)] transition-transform hover:-translate-y-1"
-                style={{ backgroundColor: t.value === "rgba(14,26,58,0.15)" ? "var(--paper-deep)" : t.value }}
+                style={{
+                  backgroundColor:
+                    t.value === "rgba(14,26,58,0.15)" ? "var(--paper-deep)" : t.value,
+                }}
               >
-                <div
-                  className="text-xs font-mono font-bold"
-                  style={{ color: t.textColor }}
-                >
+                <div className="text-xs font-mono font-bold" style={{ color: t.textColor }}>
                   {t.name}
                 </div>
-                <div
-                  className="mt-1 text-sm font-semibold"
-                  style={{ color: t.textColor }}
-                >
+                <div className="mt-1 text-sm font-semibold" style={{ color: t.textColor }}>
                   {t.value}
                 </div>
-                <div
-                  className="mt-2 text-xs opacity-80"
-                  style={{ color: t.textColor }}
-                >
+                <div className="mt-2 text-xs opacity-80" style={{ color: t.textColor }}>
                   {t.label}
                 </div>
               </div>
@@ -93,7 +82,6 @@ function DesignPreview() {
         {/* 2. Typography & Headings */}
         <section className="space-y-6">
           <div className="flex items-center gap-2 mb-2">
-            <Sparkle size={18} color="var(--sun)" />
             <h2 className="font-display text-2xl font-bold">2. Typography (Existing Fonts Only)</h2>
           </div>
           <div className="rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper-deep)] p-6 shadow-[4px_4px_0px_var(--ink)] space-y-6">
@@ -115,7 +103,9 @@ function DesignPreview() {
                 Featured Projects
               </h3>
               <p className="mt-1 text-base text-[var(--ink-soft)] leading-relaxed max-w-prose">
-                Body text in Inter regular, 1.6 line-height, constrained measure. The sketchbook theme uses warm cream paper, deep navy ink, and soft sky accents to feel friendly, calm, and handcrafted.
+                Body text in Inter regular, 1.6 line-height, constrained measure. The sketchbook
+                theme uses warm cream paper, deep navy ink, and soft sky accents to feel friendly,
+                calm, and handcrafted.
               </p>
             </div>
           </div>
@@ -126,64 +116,12 @@ function DesignPreview() {
         {/* 3. Reusable SVG Doodles */}
         <section className="space-y-8">
           <div className="flex items-center gap-2 mb-2">
-            <Sparkle size={18} color="var(--blue)" />
-            <h2 className="font-display text-2xl font-bold">3. Reusable SVG Doodles (src/components/doodles/)</h2>
+            <h2 className="font-display text-2xl font-bold">
+              3. Reusable SVG Doodles (src/components/doodles/)
+            </h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {/* Cloud Clusters */}
-            <div className="rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] p-6 shadow-[4px_4px_0px_var(--sky)]">
-              <h3 className="font-display text-lg font-bold mb-3 flex items-center justify-between">
-                <span>CloudCluster</span>
-                <span className="text-xs font-mono text-[var(--ink-soft)]">hero / compact / puff</span>
-              </h3>
-              <div className="flex flex-col items-center gap-6 bg-[var(--sky-light)] rounded-xl p-6 border border-[var(--line)]">
-                <CloudCluster variant="hero" size={280} />
-                <div className="flex gap-4 items-center">
-                  <CloudCluster variant="compact" size={150} />
-                  <CloudCluster variant="puff" size={100} />
-                </div>
-              </div>
-            </div>
-
-            {/* Brush Washes */}
-            <div className="rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] p-6 shadow-[4px_4px_0px_var(--sky)]">
-              <h3 className="font-display text-lg font-bold mb-3 flex items-center justify-between">
-                <span>BrushWash</span>
-                <span className="text-xs font-mono text-[var(--ink-soft)]">backdrop / oval / streak</span>
-              </h3>
-              <div className="flex flex-col items-center gap-4 bg-[var(--paper-deep)] rounded-xl p-6 border border-[var(--line)] overflow-hidden">
-                <BrushWash variant="oval" size={200} />
-                <BrushWash variant="streak" size={220} />
-              </div>
-            </div>
-
-            {/* Bird & Sparkles */}
-            <div className="rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] p-6 shadow-[4px_4px_0px_var(--sky)]">
-              <h3 className="font-display text-lg font-bold mb-3 flex items-center justify-between">
-                <span>Bird & Sparkles</span>
-                <span className="text-xs font-mono text-[var(--ink-soft)]">dove / silhouette / star</span>
-              </h3>
-              <div className="flex items-center justify-around bg-[var(--sky-light)] rounded-xl p-8 border border-[var(--line)]">
-                <div className="text-center">
-                  <Bird variant="dove" size={72} />
-                  <span className="text-xs font-mono mt-2 block">Dove</span>
-                </div>
-                <div className="text-center">
-                  <Bird variant="silhouette" size={36} />
-                  <span className="text-xs font-mono mt-2 block">Silhouette</span>
-                </div>
-                <div className="text-center">
-                  <Sparkle size={32} color="var(--sun)" secondary />
-                  <span className="text-xs font-mono mt-2 block">Sparkle</span>
-                </div>
-                <div className="text-center">
-                  <SparkTicks size={36} />
-                  <span className="text-xs font-mono mt-2 block">SparkTicks</span>
-                </div>
-              </div>
-            </div>
-
             {/* Arrows & Underlines */}
             <div className="rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] p-6 shadow-[4px_4px_0px_var(--sky)]">
               <h3 className="font-display text-lg font-bold mb-3 flex items-center justify-between">
@@ -229,8 +167,9 @@ function DesignPreview() {
         {/* 4. Component Primitives (Buttons, Cards, Inputs) */}
         <section className="space-y-6">
           <div className="flex items-center gap-2 mb-2">
-            <Sparkle size={18} color="var(--sun)" />
-            <h2 className="font-display text-2xl font-bold">4. Component Specs & Hard Offset Shadows</h2>
+            <h2 className="font-display text-2xl font-bold">
+              4. Component Specs & Hard Offset Shadows
+            </h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -319,7 +258,9 @@ function DesignPreview() {
                 /sohan illustration 2.png
               </h3>
               <p className="mt-2 text-sm text-[var(--ink-soft)] max-w-xl leading-relaxed">
-                Matches the character sketch in the reference image (blue sweater, ink outline, sky and clouds backdrop). Will be anchored to the bottom hero right-column in Phase 2 with overlapping cloud clusters and bird doodle.
+                Matches the character sketch in the reference image (blue sweater, ink outline, sky
+                and clouds backdrop). Will be anchored to the bottom hero right-column in Phase 2
+                with overlapping cloud clusters and bird doodle.
               </p>
             </div>
           </div>

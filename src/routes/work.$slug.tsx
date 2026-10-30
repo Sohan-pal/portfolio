@@ -2,7 +2,6 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
-import { Sparkle, ScribbleUnderline, SparkTicks } from "@/components/doodles";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -14,9 +13,7 @@ export const Route = createFileRoute("/work/$slug")({
   notFoundComponent: () => (
     <div className="grid min-h-[60vh] place-items-center pt-32 text-center">
       <div>
-        <p className="font-display text-4xl font-bold text-[var(--ink)]">
-          Project not found.
-        </p>
+        <p className="font-display text-4xl font-bold text-[var(--ink)]">Project not found.</p>
         <Link
           to="/work"
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--blue)] hover:text-[var(--blue-deep)] underline-offset-4 hover:underline"
@@ -33,10 +30,7 @@ export const Route = createFileRoute("/work/$slug")({
           Something went sideways.
         </p>
         <p className="mt-2 text-sm text-[var(--ink-soft)]">{error.message}</p>
-        <button
-          onClick={reset}
-          className="btn-primary mt-5 px-5 py-2 text-sm"
-        >
+        <button onClick={reset} className="btn-primary mt-5 px-5 py-2 text-sm">
           Try again
         </button>
       </div>
@@ -71,7 +65,6 @@ function ProjectPage() {
           className="mt-7"
         >
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--ink-soft)]">
-            <Sparkle size={12} color="var(--blue)" />
             {project.category} · {project.year}
           </p>
           <h1 className="mt-3 font-display text-5xl md:text-7xl font-bold tracking-tight text-[var(--ink)]">
@@ -85,7 +78,7 @@ function ProjectPage() {
             {project.tools.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-3.5 py-1 text-xs font-semibold text-[var(--ink-soft)]"
+                className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-3.5 py-1 text-xs font-semibold text-[var(--ink-soft)] transition-colors hover:bg-[color-mix(in_srgb,var(--sun)_60%,transparent)]"
               >
                 {t}
               </span>
@@ -111,9 +104,7 @@ function ProjectPage() {
               <ol className="space-y-3">
                 {project.process.map((p, i) => (
                   <li key={i} className="flex gap-3 text-sm text-[var(--ink-soft)]">
-                    <span className="font-mono font-bold text-[var(--blue)]">
-                      0{i + 1}
-                    </span>
+                    <span className="font-mono font-bold text-[var(--blue)]">0{i + 1}</span>
                     <span className="text-[var(--ink)]">{p}</span>
                   </li>
                 ))}
@@ -149,7 +140,6 @@ function ProjectPage() {
         >
           <div>
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--ink-soft)]">
-              <SparkTicks size={16} color="var(--sun)" />
               Next project
             </p>
             <p className="mt-2 font-display text-3xl font-bold tracking-tight text-[var(--ink)] group-hover:text-[var(--blue)] transition-colors">

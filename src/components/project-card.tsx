@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Tape } from "@/components/tape";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const reverse = index % 2 === 1;
   const isImage = project.cover.includes("/") || project.cover.includes(".");
+  const isEven = index % 2 === 0;
 
   const cardImage = (
     <div
@@ -52,7 +54,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         {project.tools.map((t) => (
           <span
             key={t}
-            className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-2.5 py-0.5 text-xs font-medium text-[var(--ink-soft)]"
+            className="rounded-full border border-[var(--line)] bg-[var(--paper-deep)] px-2.5 py-0.5 text-xs font-medium text-[var(--ink-soft)] transition-colors hover:bg-[color-mix(in_srgb,var(--sun)_60%,transparent)]"
           >
             {t}
           </span>
@@ -73,7 +75,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="group mx-auto w-full max-w-[840px] rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-5 md:p-6 transition-all duration-300 hover:-translate-y-2"
+      className="relative group mx-auto w-full max-w-[840px] rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-5 md:p-6 transition-all duration-300 hover:-translate-y-2"
       style={{ boxShadow: "0 2px 12px rgba(14,26,58,0.08)" }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 30px rgba(14,26,58,0.13)";
@@ -82,6 +84,12 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(14,26,58,0.08)";
       }}
     >
+      {/* Decorative yellow tape on alternating top corner */}
+      <Tape
+        color="sun"
+        rotation={isEven ? -6 : 5}
+        className={`hidden sm:block absolute -top-2.5 ${isEven ? "left-8" : "right-8"} w-[70px] h-[20px] z-10`}
+      />
       {project.externalUrl ? (
         <a
           href={project.externalUrl}

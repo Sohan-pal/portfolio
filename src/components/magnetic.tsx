@@ -2,7 +2,13 @@ import { useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 // Magnetic wrapper — children gently follow the cursor when nearby.
-export function Magnetic({ children, className }: { children: React.ReactNode; className?: string }) {
+export function Magnetic({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);

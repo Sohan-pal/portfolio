@@ -51,10 +51,7 @@ export function WobblyFrame({
       className={`relative border-[var(--ink,#0E1A3A)] ${organicRadius} ${fillClass} ${shadowClass} ${className}`}
       data-stroke={strokeWidth}
     >
-      <div
-        className="w-full h-full overflow-hidden"
-        style={{ borderRadius: "inherit" }}
-      >
+      <div className="w-full h-full overflow-hidden" style={{ borderRadius: "inherit" }}>
         {children}
       </div>
     </div>

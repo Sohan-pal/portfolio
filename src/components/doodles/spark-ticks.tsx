@@ -23,24 +23,9 @@ export function SparkTicks({
       {...props}
     >
       {/* 3 lively hand-drawn spark ticks radiating outward */}
-      <path
-        d="M6 26C11 22 17 19 26 18"
-        stroke={color}
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M9 17C14 12 21 8 29 6"
-        stroke={color}
-        strokeWidth="3.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M17 11C20 6 22 4 23 2"
-        stroke={color}
-        strokeWidth="2.8"
-        strokeLinecap="round"
-      />
+      <path d="M6 26C11 22 17 19 26 18" stroke={color} strokeWidth="3" strokeLinecap="round" />
+      <path d="M9 17C14 12 21 8 29 6" stroke={color} strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M17 11C20 6 22 4 23 2" stroke={color} strokeWidth="2.8" strokeLinecap="round" />
     </svg>
   );
 }

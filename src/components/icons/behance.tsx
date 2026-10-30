@@ -1,5 +1,8 @@
 // Custom Behance icon matching the Lucide icon API (accepts size prop).
-export function BehanceIcon({ size = 24, ...props }: { size?: number } & React.SVGProps<SVGSVGElement>) {
+export function BehanceIcon({
+  size = 24,
+  ...props
+}: { size?: number } & React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

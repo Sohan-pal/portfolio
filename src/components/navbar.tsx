@@ -31,13 +31,13 @@ export function Navbar() {
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "py-3" : "py-5"
-        }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "py-3" : "py-5"}`}
     >
       <div className="mx-auto max-w-6xl px-5">
         <div
-          className={`flex items-center justify-between rounded-2xl border border-[var(--line)] bg-[var(--paper)]/95 px-5 py-2.5 transition-all ${scrolled ? "bg-[var(--paper)] shadow-sm" : "shadow-sm"
-            }`}
+          className={`flex items-center justify-between rounded-2xl border border-[var(--line)] bg-[var(--paper)]/95 px-5 py-2.5 transition-all ${
+            scrolled ? "bg-[var(--paper)] shadow-sm" : "shadow-sm"
+          }`}
         >
           {/* Brand Logo */}
           <Link to="/" className="group flex items-center gap-1.5">
@@ -55,10 +55,11 @@ export function Navbar() {
                 <Link
                   key={l.to}
                   to={l.to}
-                  className={`relative py-1 text-sm font-medium transition-colors ${active
+                  className={`relative py-1 text-sm font-medium transition-colors ${
+                    active
                       ? "text-[var(--blue)] font-bold"
                       : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
-                    }`}
+                  }`}
                 >
                   <span>{l.label}</span>
                   {active && (
@@ -108,10 +109,11 @@ export function Navbar() {
                   <Link
                     key={l.to}
                     to={l.to}
-                    className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${active
+                    className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+                      active
                         ? "bg-[var(--sky-light)] text-[var(--blue)] font-bold border border-[var(--ink)]"
                         : "text-[var(--ink)] hover:bg-[var(--paper)]"
-                      }`}
+                    }`}
                   >
                     {l.label}
                   </Link>

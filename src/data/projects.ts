@@ -25,8 +25,7 @@ export const projects: Project[] = [
     category: "Print · Type",
     year: "2025-26",
     summary: "Typographic posters for various clients.",
-    description:
-      "A six-poster series mixing photography, modular type and risograph textures.",
+    description: "A six-poster series mixing photography, modular type and risograph textures.",
     cover: "from-amber-200 via-rose-300 to-cyan-300",
     accent: "from-amber-200 to-cyan-300",
     tools: ["Illustrator", "Figma"],
@@ -57,12 +56,13 @@ export const projects: Project[] = [
     cover: "/aothub.png",
     accent: "from-amber-300 to-rose-400",
     tools: ["Figma", "Notion"],
-    externalUrl: "https://app.notion.com/p/AOTHUB-UX-DESIGN-CASE-STUDY-372c14536d3a8070a9d4d1e153e2d027?source=copy_link",
+    externalUrl:
+      "https://app.notion.com/p/AOTHUB-UX-DESIGN-CASE-STUDY-372c14536d3a8070a9d4d1e153e2d027?source=copy_link",
     problem:
       "Most banking apps lead with anxiety-inducing balances. We wanted an interface that helps students plan, not panic.",
     process: [
       "User interviews with 12 students about money stress",
-      "Information architecture exploring \"safe-to-spend\" first",
+      'Information architecture exploring "safe-to-spend" first',
       "Lo-fi wireframes, then a high-fidelity Figma prototype",
       "Motion studies for transitions and micro-feedback",
     ],
@@ -113,12 +113,13 @@ export const projects: Project[] = [
     cover: "/spotifyfit-thumbnail.png",
     accent: "from-amber-300 to-rose-400",
     tools: ["Figma", "Notion"],
-    externalUrl: "https://www.notion.so/Spotify-x-Fitness-UX-Design-Sprint-Case-study-364c14536d3a801589ebcffe1b95fed0?source=copy_link",
+    externalUrl:
+      "https://www.notion.so/Spotify-x-Fitness-UX-Design-Sprint-Case-study-364c14536d3a801589ebcffe1b95fed0?source=copy_link",
     problem:
       "Most banking apps lead with anxiety-inducing balances. We wanted an interface that helps students plan, not panic.",
     process: [
       "User interviews with 12 students about money stress",
-      "Information architecture exploring \"safe-to-spend\" first",
+      'Information architecture exploring "safe-to-spend" first',
       "Lo-fi wireframes, then a high-fidelity Figma prototype",
       "Motion studies for transitions and micro-feedback",
     ],

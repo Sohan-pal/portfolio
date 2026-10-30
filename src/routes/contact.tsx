@@ -5,7 +5,6 @@ import { Check, Download, Send } from "lucide-react";
 import { z } from "zod";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/socials";
-import { Sparkle, ScribbleUnderline, SparkTicks } from "@/components/doodles";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -61,7 +60,8 @@ function Contact() {
     }
   }
 
-  const cardCls = "rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-5 transition-all hover:-translate-y-1";
+  const cardCls =
+    "rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-5 transition-all hover:-translate-y-1";
   const cardStyle = { boxShadow: "0 2px 10px rgba(14,26,58,0.07)" };
   const cardHoverStyle = { boxShadow: "0 8px 24px rgba(14,26,58,0.13)" };
 
@@ -70,7 +70,6 @@ function Contact() {
       <div className="mx-auto max-w-5xl px-5">
         {/* Section label */}
         <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--ink-soft)]">
-          <Sparkle size={13} color="var(--blue)" />
           Contact
         </p>
 
@@ -81,14 +80,7 @@ function Contact() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-3 font-display text-5xl md:text-7xl font-bold tracking-tight text-[var(--ink)]"
         >
-          Say{" "}
-          <span className="relative inline-block">
-            <span className="text-[var(--blue)] italic">hi</span>
-            <span className="absolute -bottom-2 left-0 w-full">
-              <ScribbleUnderline variant="wave" height={10} color="var(--blue)" />
-            </span>
-          </span>
-          .
+          Say <span className="highlight">hi</span>.
         </motion.h1>
 
         <motion.p
@@ -97,8 +89,8 @@ function Contact() {
           transition={{ delay: 0.2 }}
           className="mt-5 max-w-xl text-[var(--ink-soft)] text-base leading-relaxed"
         >
-          Briefs, internships, collaborations or just nice notes about typography
-          — my inbox is open.
+          Briefs, internships, collaborations or just nice notes about typography — my inbox is
+          open.
         </motion.p>
 
         {/* Grid: Aside + Form */}
@@ -115,7 +107,9 @@ function Contact() {
               href={`mailto:${profile.email}`}
               className={`group block ${cardCls}`}
               style={cardStyle}
-              onMouseEnter={(e) => Object.assign((e.currentTarget as HTMLElement).style, cardHoverStyle)}
+              onMouseEnter={(e) =>
+                Object.assign((e.currentTarget as HTMLElement).style, cardHoverStyle)
+              }
               onMouseLeave={(e) => Object.assign((e.currentTarget as HTMLElement).style, cardStyle)}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink-soft)]">
@@ -132,7 +126,9 @@ function Contact() {
               download
               className={`group flex items-center justify-between ${cardCls}`}
               style={cardStyle}
-              onMouseEnter={(e) => Object.assign((e.currentTarget as HTMLElement).style, cardHoverStyle)}
+              onMouseEnter={(e) =>
+                Object.assign((e.currentTarget as HTMLElement).style, cardHoverStyle)
+              }
               onMouseLeave={(e) => Object.assign((e.currentTarget as HTMLElement).style, cardStyle)}
             >
               <div>
@@ -190,12 +186,12 @@ function Contact() {
                   style={{ boxShadow: "0 4px 20px rgba(169,214,250,0.3)" }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="grid h-14 w-14 place-items-center rounded-xl border border-[var(--line)] bg-[var(--blue)]"
+                    <div
+                      className="grid h-14 w-14 place-items-center rounded-xl border border-[var(--line)] bg-[var(--blue)]"
                       style={{ boxShadow: "0 2px 12px rgba(22,119,255,0.3)" }}
                     >
                       <Check size={26} className="text-white" />
                     </div>
-                    <SparkTicks size={28} color="var(--sun)" />
                   </div>
                   <p className="mt-6 font-display text-2xl font-bold text-[var(--ink)]">
                     Message sent!
@@ -216,28 +212,15 @@ function Contact() {
                   noValidate
                 >
                   <Field label="Name" name="name" error={errors.name} />
-                  <Field
-                    label="Email"
-                    name="email"
-                    type="email"
-                    error={errors.email}
-                  />
-                  <Field
-                    label="Message"
-                    name="message"
-                    textarea
-                    error={errors.message}
-                  />
+                  <Field label="Email" name="email" type="email" error={errors.email} />
+                  <Field label="Message" name="message" textarea error={errors.message} />
                   <button
                     type="submit"
                     disabled={pending}
                     className="btn-primary px-6 py-3 text-sm font-semibold inline-flex items-center gap-2 group disabled:opacity-60"
                   >
                     {pending ? "Sending…" : "Send message"}
-                    <Send
-                      size={14}
-                      className="transition-transform group-hover:translate-x-0.5"
-                    />
+                    <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
                   </button>
                 </motion.form>
               )}
@@ -283,9 +266,7 @@ function Field({
         />
       )}
       {error && (
-        <span className="mt-2 block text-xs font-semibold text-[var(--destructive)]">
-          {error}
-        </span>
+        <span className="mt-2 block text-xs font-semibold text-[var(--destructive)]">{error}</span>
       )}
     </label>
   );
